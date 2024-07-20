@@ -10,6 +10,11 @@ OVERLAY_DIR=switch/.overlays
 
 UNZIP_COMMAND="unzip -o"
 
+Tinfoil() {
+    curl -O -L "https://tinfoil.media/repo/Tinfoil%20Self%20Installer%20%5B050000BADDAD0000%5D%5B18.0%5D%5Bv1%5D.zip" --output-dir $TMP_DIR
+    $UNZIP_COMMAND $TMP_DIR/Tinfoil*.zip -d $BUILD_DIR/ -x "switch/tinfoil/icons.db"
+}
+
 Themezer() {
     download_url=$(curl -s https://api.github.com/repos/suchmememanyskill/themezer-nx/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -87,6 +92,7 @@ mkdir $TMP_DIR
 mkdir -p $OVERLAY_DIR
 
 # Homebrews
+Tinfoil
 Themezer
 ThemeInjector
 SaltyNX
