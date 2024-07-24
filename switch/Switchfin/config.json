@@ -1,0 +1,24 @@
+{
+  "device": "Nintendo Switch",
+  "remotes": [],
+  "server_url": "https://jellyfin.8bit-gamer.online",
+  "servers": [
+    {
+      "id": "ea1ca2d9b44549749a9c36789446fff8",
+      "name": "8Bit Server",
+      "os": "Atmosphere",
+      "urls": [
+        "https://jellyfin.8bit-gamer.online"
+      ],
+      "version": "10.9.6"
+    }
+  ],
+  "setting": {
+    "force_directplay": true,
+    "http_proxy_status": false,
+    "overclock": false,
+    "player_bottom_bar": false
+  },
+  "user_id": "",
+  "users": []
+}
