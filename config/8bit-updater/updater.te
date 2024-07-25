@@ -13,6 +13,7 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	p("Making a backup of some files")
 	p()	
 	if (fsexists("sd:/switch/tinfoil/options.json")) {
+	delfile("sd:/pacman/switch/tinfoil/options.json");
 	movefile("sd:/switch/tinfoil/options.json", "sd:/pacman/switch/tinfoil/options.json")
 	}
 	if (fsexists("sd:/switch/tinfoil/icons.db")) {
@@ -25,6 +26,7 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	movefile("sd:/switch/prod.keys", "sd:/pacman/switch/prod.keys")
 	}
 	if (fsexists("sd:/switch/Switchfin/config.json")) {
+	delfile("sd:/pacman/switch/Switchfin/config.json");
 	movefile("sd:/switch/Switchfin/config.json", "sd:/pacman/switch/Switchfin/config.json")
 	}
 	clear()
