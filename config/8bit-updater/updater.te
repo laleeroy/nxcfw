@@ -19,6 +19,10 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	if (fsexists("sd:/switch/tinfoil/icons.db")) {
 	movefile("sd:/switch/tinfoil/icons.db", "sd:/pacman/switch/tinfoil/icons.db")
 	}
+	if (fsexists("sd:/switchroot/android/bootlogo_android.bmp")) {
+	delfile("sd:/switchroot/android/bootlogo_android.bmp");
+	movefile("sd:/bootloader/res/android/icon_android.bmp", "sd:/switchroot/android/bootlogo_android.bmp")
+	}
 	if (fsexists("sd:/bootloader/ini")) {
 	copydir("sd:/bootloader/ini", "sd:/pacman/bootloader/ini")
 	}
