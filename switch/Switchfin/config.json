@@ -1,6 +1,11 @@
 {
   "device": "Nintendo Switch",
-  "remotes": [],
+  "remotes": [
+ {
+      "name": "Live TV",
+      "url": "file:///switch/Switchfin/channels"
+    }
+  ],
   "server_url": "https://jellyfin.8bit-gamer.online",
   "servers": [
     {
@@ -10,14 +15,17 @@
       "urls": [
         "https://jellyfin.8bit-gamer.online"
       ],
-      "version": "10.9.6"
+      "version": "10.9.11"
     }
   ],
   "setting": {
     "force_directplay": true,
     "http_proxy_status": false,
     "overclock": false,
-    "player_bottom_bar": false
+    "player_bottom_bar": false,
+    "player_inmemory_cache": 30,
+    "player_hwdec": true,
+    "transcodec": "h264"
   },
   "user_id": "",
   "users": []
