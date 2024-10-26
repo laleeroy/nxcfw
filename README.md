@@ -1,5 +1,5 @@
 # F-Beta
-**************Reinstall Tinfoil, Switchfin and Updater app to work
+Reinstall Tinfoil, Switchfin and Updater app to work
 - HBs Update.
 - Update Atmosphere
 - Update Hekate
