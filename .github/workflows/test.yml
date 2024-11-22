@@ -1,0 +1,17 @@
+name:
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checkout-and-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout AMS
+        uses: actions/checkout@v4
+        with:
+          repository: laleeroy/Atmosphere-
+          path: ams
+          ref: Test
+          token: ${{ secrets.PAT }}
