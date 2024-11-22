@@ -3,7 +3,7 @@ name: Automated Release
 on:
   push:
     tags:
-      - '*'
+      - '*'  # Trigger on tag push
 
 jobs:
   zip-and-update:
@@ -16,7 +16,20 @@ jobs:
         ref: main  # Adjust to the branch you want to work with
 
     - name: Set up environment variables
-      run: echo "REPO_TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      run: |
+        # Download the ams_api_version.h file and extract version
+        curl -s -L https://github.com/Atmosphere-NX/Atmosphere/raw/refs/heads/master/libraries/libvapours/include/vapours/ams/ams_api_version.h -o ams_api_version.h
+
+        # Extract HOS version information
+        export HOS_MAJOR=$(grep -oP '#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MAJOR\s+\K[0-9]+' ams_api_version.h)
+        export HOS_MINOR=$(grep -oP '#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MINOR\s+\K[0-9]+' ams_api_version.h)
+        export HOS_MICRO=$(grep -oP '#define ATMOSPHERE_SUPPORTED_HOS_VERSION_MICRO\s+\K[0-9]+' ams_api_version.h)
+
+        # Combine the extracted values into a single version string
+        echo "HOS_VERSION=${HOS_MAJOR}.${HOS_MINOR}.${HOS_MICRO}" >> $GITHUB_ENV
+
+        # Set REPO_TAG_NAME based on the pushed tag
+        echo "REPO_TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV  # Extract tag from GITHUB_REF
 
     - name: Run update-hb script
       run: |
@@ -36,9 +49,18 @@ jobs:
       run: |
         sudo apt-get install gh -y
 
-    - name: Upload zip file to latest release
+    - name: Create release and upload zip file
       run: |
-        latest_release_tag=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
-        gh release upload "$latest_release_tag" "8BP-${{ env.REPO_TAG_NAME }}.zip"
+        # Extract the tag from GITHUB_REF (this will be the tag that triggered the workflow)
+        release_tag=${GITHUB_REF##*/}  # Remove the "refs/tags/" part to get just the tag name
+        
+        release_title="For FW ${{ env.HOS_VERSION }} and below"
+        release_body="Test"
+
+        # Create the release and upload the zip file
+        gh release create "$release_tag" \
+          --title "$release_title" \
+          --notes "$release_body" \
+          "8BP-${{ env.REPO_TAG_NAME }}.zip"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
