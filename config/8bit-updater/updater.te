@@ -19,12 +19,23 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	if (fsexists("sd:/switch/tinfoil/icons.db")) {
 	movefile("sd:/switch/tinfoil/icons.db", "sd:/pacman/switch/tinfoil/icons.db")
 	}
-	if (fsexists("sd:/switchroot/android/bootlogo_android.bmp")) {
-	delfile("sd:/switchroot/android/bootlogo_android.bmp");
-	movefile("sd:/bootloader/res/android/icon_android.bmp", "sd:/switchroot/android/bootlogo_android.bmp")
+	if (fsexists("sd:/switchroot/joycon.mac")) {
+	movefile("sd:/switchroot/joycon.mac", "sd:/pacman/switchroot/joycon.mac")
 	}
+	if (fsexists("sd:/switchroot/joycon.bin")) {
+	movefile("sd:/switchroot/joycon.bin", "sd:/pacman/switchroot/joycon.bin")
+	}	
+	if (fsexists("sd:/switchroot/android/icon_android_hue.bmp")) {
+	movefile("sd:/pacman/bootloader/res/android/icon_android.bmp", "sd:/switchroot/android/icon_android.bmp")
+	}
+	if (fsexists("sd:/switchroot/ubuntu-noble/icon_ubuntu_hue.bmp")) {
+	movefile("sd:/pacman/bootloader/res/ubuntu/icon_ubuntu.bmp", "sd:/switchroot/ubuntu-noble/icon_ubuntu.bmp")
+	}	
+	if (fsexists("sd:/lakka/boot/icon_lakka_hue.bmp")) {
+	movefile("sd:/pacman/bootloader/res/lakka/icon_lakka.bmp", "sd:/lakka/boot/icon_lakka.bmp")
+	}	
 	if (fsexists("sd:/bootloader/ini")) {
-	copydir("sd:/bootloader/ini", "sd:/pacman/bootloader/ini")
+	movefile("sd:/bootloader/ini", "sd:/pacman/bootloader/ini")
 	}
 	if (fsexists("sd:/switch/prod.keys")) {
 	movefile("sd:/switch/prod.keys", "sd:/pacman/switch/prod.keys")
