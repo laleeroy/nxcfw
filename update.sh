@@ -29,23 +29,17 @@ Hekate() {
     mv $BUILD_DIR/hekate*.bin $BUILD_DIR/payload.bin
 }
 
-Tinfoil() {
-    curl -O -L "https://tinfoil.media/repo/Tinfoil%20Self%20Installer%20%5B050000BADDAD0000%5D%5B18.0%5D%5Bv1%5D.zip" --output-dir $TMP_DIR
-    $UNZIP_COMMAND $TMP_DIR/Tinfoil*.zip -d $BUILD_DIR/ -x "switch/tinfoil/icons.db"
-}
-
-Themezer() {
-    download_url=$(curl -s https://api.github.com/repos/suchmememanyskill/themezer-nx/releases/latest | jq -r ".assets[0].browser_download_url")
-    curl -O -L $download_url --output-dir $TMP_DIR
-    cp $TMP_DIR/themezer-nx.nro -d $BUILD_DIR/$HOMEBREW_DIR
-}
-
 SaltyNX() {
     download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/SaltyNX*.zip -d $BUILD_DIR/
 }
 
+Sphaira() {
+    download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    cp $TMP_DIR/hbl.nsp -d $BUILD_DIR/atmosphere
+}
 ThemeInjector() {
     download_url=$(curl -s https://api.github.com/repos/exelix11/SwitchThemeInjector/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -122,9 +116,7 @@ Hekate
 
 # Homebrews
 HBLoader
-HBMenu
-Tinfoil
-Themezer
+Sphaira
 ThemeInjector
 SaltyNX
 Appstore
