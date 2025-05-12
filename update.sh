@@ -38,8 +38,10 @@ SaltyNX() {
 Sphaira() {
     download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
-    cp $TMP_DIR/hbl.nsp -d $BUILD_DIR/atmosphere
+    unzip -j "$TMP_DIR/sphaira.zip" "switch/sphaira/sphaira.nro" -d "$BUILD_DIR"
+    mv "$BUILD_DIR/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
+
 ThemeInjector() {
     download_url=$(curl -s https://api.github.com/repos/exelix11/SwitchThemeInjector/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
