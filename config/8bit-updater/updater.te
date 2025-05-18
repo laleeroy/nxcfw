@@ -10,56 +10,21 @@ p=println
 wait={t=timer()while(timer()<(t+tw)){print()}}
 
 	color(WHITE);
-	p("Making a backup of some files")
-	p()	
-	if (fsexists("sd:/switch/tinfoil/options.json")) {
-	delfile("sd:/pacman/switch/tinfoil/options.json");
-	movefile("sd:/switch/tinfoil/options.json", "sd:/pacman/switch/tinfoil/options.json")
-	}
-	if (fsexists("sd:/switch/tinfoil/icons.db")) {
-	movefile("sd:/switch/tinfoil/icons.db", "sd:/pacman/switch/tinfoil/icons.db")
-	}
-	if (fsexists("sd:/switchroot/joycon.mac")) {
-	movefile("sd:/switchroot/joycon.mac", "sd:/pacman/switchroot/joycon.mac")
-	}
-	if (fsexists("sd:/switchroot/joycon.bin")) {
-	movefile("sd:/switchroot/joycon.bin", "sd:/pacman/switchroot/joycon.bin")
-	}	
-	if (fsexists("sd:/switchroot/android/icon_android_hue.bmp")) {
-	movefile("sd:/pacman/bootloader/res/android/icon_android.bmp", "sd:/switchroot/android/icon_android.bmp")
-	}
-	if (fsexists("sd:/switchroot/ubuntu-noble/icon_ubuntu_hue.bmp")) {
-	movefile("sd:/pacman/bootloader/res/ubuntu/icon_ubuntu.bmp", "sd:/switchroot/ubuntu-noble/icon_ubuntu.bmp")
-	}	
-	if (fsexists("sd:/lakka/boot/icon_lakka_hue.bmp")) {
-	movefile("sd:/pacman/bootloader/res/lakka/icon_lakka.bmp", "sd:/lakka/boot/icon_lakka.bmp")
-	}	
-	if (fsexists("sd:/bootloader/ini")) {
-	movefile("sd:/bootloader/ini", "sd:/pacman/bootloader/ini")
-	}
-	if (fsexists("sd:/switch/prod.keys")) {
-	movefile("sd:/switch/prod.keys", "sd:/pacman/switch/prod.keys")
-	}
-	if (fsexists("sd:/switch/Switchfin/config.json")) {
-	delfile("sd:/pacman/switch/Switchfin/config.json");
-	movefile("sd:/switch/Switchfin/config.json", "sd:/pacman/switch/Switchfin/config.json")
-	}
+	p("Backing up old files")
+	p()
+	deldir("sd:/oldcfw")
+	mkdir("sd:/oldcfw")	
+	movefile("sd:/atmosphere", "sd:/oldcfw/atmosphere");
+	movefile("sd:/bootloader", "sd:/oldcfw/bootloader");
+	movefile("sd:/config", "sd:/oldcfw/config");
+	movefile("sd:/switch", "sd:/oldcfw/switch");
+	movefile("sd:/SaltySD", "sd:/oldcfw/SaltySD");
+	movefile("sd:/payload.bin", "sd:/oldcfw/payload.bin");
+	movefile("sd:/exosphere.ini", "sd:/oldcfw/exosphere.ini");
+	movefile("sd:/hbmenu.nro", "sd:/oldcfw/hbmenu.nro");
 	clear()
 
-	color(RED);
-	p("Deleting old files that may cause conflict")
-	p()	
-	deldir("sd:/atmosphere");
-	deldir("sd:/bootloader");
-	deldir("sd:/config");
-	deldir("sd:/switch");
-	deldir("sd:/SaltySD");
-	delfile("sd:/payload.bin");
-	delfile("sd:/exosphere.ini");
-	delfile("sd:/hbmenu.nro");
-	clear()
-
-	color(ORANGE);	
+	color(RED);	
 	p("Copying new files")
 	p()	
 	copydir("sd:/pacman/atmosphere", "sd:/");
@@ -72,6 +37,41 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	copyfile("sd:/pacman/hbmenu.nro", "sd:/hbmenu.nro");
 	clear()
 
+	color(ORANGE);
+	p("Restoring important configs")
+	p()
+	if (fsexists("sd:/oldcfw/switch/8bit-updater")) {
+	copydir("sd:/oldcfw/switch/8bit-updater", "sd:/switch");
+	}
+	if (fsexists("sd:/oldcfw/switch/8bit-daybreak.nro")) {
+	copyfile("sd:/oldcfw/switch/8bit-daybreak.nro", "sd:/switch/8bit-daybreak.nro");
+	}
+	if (fsexists("sd:/oldcfw/switch/tinfoil/options.json")) {
+	copyfile("sd:/oldcfw/switch/tinfoil/options.json", "sd:/switch/tinfoil/options.json");
+	}
+	if (fsexists("sd:/oldcfw/switch/tinfoil/locations.conf")) {
+	copyfile("sd:/oldcfw/switch/tinfoil/locations.conf", "sd:/switch/tinfoil/locations.conf");
+	}
+	if (fsexists("sd:/oldcfw/switch/Switchfin")) {
+	copydir("sd:/oldcfw/switch/Switchfin", "sd:/switch");
+	}
+	if (fsexists("sd:/oldcfw/switch/DBI")) {
+	copydir("sd:/oldcfw/switch/DBI", "sd:/switch");
+	}
+	if (fsexists("sd:/oldcfw/switch/prod.keys")) {
+	copyfile("sd:/oldcfw/switch/prod.keys", "sd:/switch/prod.keys");
+	}
+	if (fsexists("sd:/oldcfw/switchroot/joycon.mac")) {
+	copyfile("sd:/oldcfw/switchroot/joycon.mac", "sd:/switchroot/joycon.mac")
+	}
+	if (fsexists("sd:/oldcfw/switchroot/joycon.bin")) {
+	copyfile("sd:/oldcfw/switchroot/joycon.bin", "sd:/switchroot/joycon.bin")
+	}		
+	if (fsexists("sd:/oldcfw/bootloader/ini")) {
+	copydir("sd:/oldcfw/bootloader/ini", "sd:/bootloader");
+	}
+	clear()
+	
 	color(YELLOW);
 	p("Finishing touches")
 	p()
@@ -83,4 +83,4 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	p("Update complete!")
 	p()
 	p("Rebooting")
-	wait(tw = 3000)
+	wait(tw = 1000)
