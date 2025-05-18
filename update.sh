@@ -127,7 +127,6 @@ HBLoader
 Sphaira
 ThemeInjector
 SaltyNX
-Appstore
 
 # Overlays
 Ovlloader
