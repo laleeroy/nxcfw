@@ -116,6 +116,12 @@ Ultrahand() {
     cp $TMP_DIR/ovlmenu.ovl -d $BUILD_DIR/$OVERLAY_DIR
 }
 
+MissionControl() {
+    download_url=$(curl -s https://api.github.com/repos/ndeadly/MissionControl/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    $UNZIP_COMMAND $TMP_DIR/MissionControl*.zip -d $BUILD_DIR/
+}
+
 mkdir $TMP_DIR
 mkdir -p $OVERLAY_DIR
 
@@ -138,5 +144,6 @@ Sys-Clk
 Emuiibo
 StatusMonitor
 Ultrahand
+MissionControl
 
 rm -rf $TMP_DIR
