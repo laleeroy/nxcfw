@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout nxcfw
+        uses: actions/checkout@v4
+        with:
+          repository: laleeroy/nxcfw
+          path: configs
+
+      - name: Checkout switch-logo-patcher
+        uses: actions/checkout@v4
+        with:
+          repository: friedkeenan/switch-logo-patcher
+          path: switch-logo-patcher
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq python3 python3-pip
+          pip3 install -r switch-logo-patcher/requirements.txt
+
+      - name: Generate BL Patches
+        run: |
+          python3 switch-logo-patcher/gen_patches.py configs/atmosphere/exefs_patches/bl_patches configs/logo/8bg.png
+
+      - name: Compile
+        run: |
+          cd configs
+          bash update.sh
+          rm -rf update.sh logo .git*
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: 8BP-Unknown
+          path: configs/

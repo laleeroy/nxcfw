@@ -44,8 +44,8 @@ SaltyNX() {
 Sphaira() {
     download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
-    unzip -j "$TMP_DIR/sphaira.zip" -d "$BUILD_DIR"
-    cp "$BUILD_DIR/switch/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
+    $UNZIP_COMMAND "$TMP_DIR/sphaira.zip" -d "$BUILD_DIR"
+    cp "$BUILD_DIR/switch/sphaira/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
 
 ThemeInjector() {
