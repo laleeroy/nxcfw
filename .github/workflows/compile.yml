@@ -42,3 +42,4 @@ jobs:
         with:
           name: 8BP-Unknown
           path: configs/
+          include-hidden-files: true
