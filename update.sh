@@ -44,8 +44,8 @@ SaltyNX() {
 Sphaira() {
     download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
-    unzip -j "$TMP_DIR/sphaira.zip" "switch/sphaira/sphaira.nro" -d "$BUILD_DIR"
-    mv "$BUILD_DIR/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
+    unzip -j "$TMP_DIR/sphaira.zip" -d "$BUILD_DIR"
+    cp "$BUILD_DIR/switch/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
 
 ThemeInjector() {
@@ -136,7 +136,6 @@ SaltyNX
 
 # Overlays
 Ovlloader
-Sys-Patch
 Edizon
 ReverseNX
 SysModules
