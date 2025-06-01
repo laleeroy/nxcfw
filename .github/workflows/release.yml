@@ -1,0 +1,109 @@
+ngame: Build
+
+on:
+  push:
+    tags:
+      - '*' # This means the workflow will run on any tag push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout nxcfw
+        uses: actions/checkout@v4
+        with:
+          repository: laleeroy/nxcfw
+          path: configs
+
+      - name: Checkout switch-logo-patcher
+        uses: actions/checkout@v4
+        with:
+          repository: friedkeenan/switch-logo-patcher
+          path: switch-logo-patcher
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq python3 python3-pip
+          pip3 install -r switch-logo-patcher/requirements.txt
+
+      - name: Generate BL Patches
+        run: |
+          python3 switch-logo-patcher/gen_patches.py configs/atmosphere/exefs_patches/bl_patches configs/logo/8bg.png
+
+      - name: Get Homebrew Versions
+        id: get_versions
+        run: |
+          # Define a function to get the latest tag name from a repo
+          get_latest_tag() {
+            curl -s "https://api.github.com/repos/$1/releases/latest" | jq -r ".tag_name" | tr -d 'v'
+          }
+
+          # Fetch and set version for each homebrew
+          echo "AMS_VERSION=$(get_latest_tag AtmosphereNX/Atmosphere)" >> $GITHUB_ENV
+          echo "HEKATE_VERSION=$(get_latest_tag CTCaer/hekate)" >> $GITHUB_ENV
+          echo "HBMENU_VERSION=$(get_latest_tag switchbrew/nx-hbmenu)" >> $GITHUB_ENV
+          echo "HBLOADER_VERSION=$(get_latest_tag switchbrew/nx-hbloader)" >> $GITHUB_ENV
+          echo "OVLLOADER_VERSION=$(get_latest_tag WerWolv/nx-ovlloader)" >> $GITHUB_ENV
+          echo "SALTYNX_VERSION=$(get_latest_tag masagrator/SaltyNX)" >> $GITHUB_ENV
+          echo "SPHAIRA_VERSION=$(get_latest_tag ITotalJustice/sphaira)" >> $GITHUB_ENV
+          echo "THEMEINJECTOR_VERSION=$(get_latest_tag exelix11/SwitchThemeInjector)" >> $GITHUB_ENV
+          echo "DBI_VERSION=$(get_latest_tag rashevskyv/dbi)" >> $GITHUB_ENV
+          echo "APPSTORE_VERSION=$(get_latest_tag fortheusers/hb-appstore)" >> $GITHUB_ENV
+          echo "SYSPATCH_VERSION=$(get_latest_tag impeeza/sys-patch)" >> $GITHUB_ENV
+          echo "EDIZON_VERSION=$(get_latest_tag proferabg/Edizon-Overlay)" >> $GITHUB_ENV
+          echo "REVERSENX_VERSION=$(get_latest_tag masagrator/ReverseNX-RT)" >> $GITHUB_ENV
+          echo "SYSMODULES_VERSION=$(get_latest_tag WerWolv/ovl-sysmodules)" >> $GITHUB_ENV
+          echo "SYSCLK_VERSION=$(get_latest_tag retronx-team/sys-clk)" >> $GITHUB_ENV
+          echo "EMUIIBO_VERSION=$(get_latest_tag XorTroll/emuiibo)" >> $GITHUB_ENV
+          echo "STATUSMONITOR_VERSION=$(get_latest_tag masagrator/Status-Monitor-Overlay)" >> $GITHUB_ENV
+          echo "ULTRAHAND_VERSION=$(get_latest_tag ppkantorski/Ultrahand-Overlay)" >> $GITHUB_ENV
+          echo "MISSIONCONTROL_VERSION=$(get_latest_tag ndeadly/MissionControl)" >> $GITHUB_ENV
+
+      - name: Compile
+        run: |
+          cd configs
+          TAGNAME=${GITHUB_REF#refs/tags/}
+          echo "$TAGNAME" > atmosphere/config/version
+          bash update.sh
+          rm -rf update.sh Dockerfile requirements.txt logo .git*
+
+          # Archive the release
+          ZIP_FILE_NAME="8BP-${{ github.ref_name }}.zip"
+          zip -r ../$ZIP_FILE_NAME ./*
+          echo "Generated $ZIP_FILE_NAME"
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: 8BP-${{ github.ref_name }}.zip
+          name: 8BP-${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          body: |
+            8BP-${{ github.ref_name }} Contains:
+
+            • atmosphere v${{ env.AMS_VERSION }}
+            • hekate v${{ env.HEKATE_VERSION }}
+            • hbmenu v${{ env.HBMENU_VERSION }}
+            • hbloader v${{ env.HBLOADER_VERSION }}
+            • nx-ovlloader v${{ env.OVLLOADER_VERSION }}
+            • saltynx v${{ env.SALTYNX_VERSION }}
+            • sphaira v${{ env.SPHAIRA_VERSION }}
+            • nxthemes installer v${{ env.THEMEINJECTOR_VERSION }}
+            • hbappstore v${{ env.APPSTORE_VERSION }}
+            • edizon v${{ env.EDIZON_VERSION }}
+            • reversenx v${{ env.REVERSENX_VERSION }}
+            • sysmodules v${{ env.SYSMODULES_VERSION }}
+            • sys-clk v${{ env.SYSCLK_VERSION }}
+            • emuiibo v${{ env.EMUIIBO_VERSION }}
+            • status monitor v${{ env.STATUSMONITOR_VERSION }}
+            • ultrahand v${{ env.ULTRAHAND_VERSION }}
+            • mission control v${{ env.MISSIONCONTROL_VERSION }}
+
+            ---
+            This release was automatically generated.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

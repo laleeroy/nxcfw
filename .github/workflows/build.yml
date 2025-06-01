@@ -1,4 +1,4 @@
-name: Compile
+name: Build
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/${{ github.repository_owner }}/switch-stuffs-dependencies:latest
 
     steps:
       - name: Checkout nxcfw
@@ -20,6 +21,14 @@ jobs:
           repository: friedkeenan/switch-logo-patcher
           path: switch-logo-patcher
 
+      - name: Checkout atmosphere
+        uses: actions/checkout@v4
+        with:
+          repository: laleeroy/Atmosphere-
+          path: ams
+          submodules: recursive
+          token: ${{ secrets.GH_TOKEN }}
+
       - name: Install Dependencies
         run: |
           sudo apt-get update
@@ -29,6 +38,11 @@ jobs:
       - name: Generate BL Patches
         run: |
           python3 switch-logo-patcher/gen_patches.py configs/atmosphere/exefs_patches/bl_patches configs/logo/8bg.png
+
+      - name: Build
+        run: |
+          make -C ams -f atmosphere.mk dist-no-debug -j$(nproc)
+          unzip ams/out/nintendo_nx_arm64_armv8a/release/atmosphere*.zip -d configs
 
       - name: Compile
         run: |
