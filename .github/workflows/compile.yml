@@ -19,6 +19,8 @@ jobs:
           repository: laleeroy/nxcfw
           path: configs
           ref: configs
+          # Provide a token for write access to push changes
+          token: ${{ secrets.GH_TOKEN }} # Ensure this secret is set in your repo
 
       - name: Checkout switch-logo-patcher
         uses: actions/checkout@v4
@@ -39,4 +41,19 @@ jobs:
       - name: Generate Patches
         run: |
           python3 switch-logo-patcher/gen_patches.py configs/atmosphere/exefs_patches/bl_patches configs/logo/8bg.png
+
+      - name: Configure Git and Push Patches
+        # This step will only run if there are actual changes in the 'configs' directory.
+        # It's crucial that ${{ secrets.GH_TOKEN }} has write access to laleeroy/nxcfw.
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # Make token available to the step
+        run: |
+          cd configs # Navigate into the checked out configs directory
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff --staged --quiet || git commit -m "Automated: Generate logo patches" # Only commit if there are changes
+          # Push changes back to the 'configs' branch of laleeroy/nxcfw
+          # Using the full repository URL with token for authentication
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/laleeroy/nxcfw.git HEAD:configs
 
