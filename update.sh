@@ -26,6 +26,7 @@ Hekate() {
     download_url=$(curl -s https://api.github.com/repos/CTCaer/hekate/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/hekate*.zip -d $BUILD_DIR
+    cp $BUILD_DIR/hekate*.bin $BUILD_DIR/atmosphere/reboot_payload.bin
     mv $BUILD_DIR/hekate*.bin $BUILD_DIR/payload.bin
 }
 
