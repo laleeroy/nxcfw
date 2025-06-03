@@ -10,6 +10,13 @@ OVERLAY_DIR=switch/.overlays
 
 UNZIP_COMMAND="unzip -o"
 
+8BU() {
+    download_url=$(curl -s https://api.github.com/repos/laleeroy/nxlinks/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    $UNZIP_COMMAND $TMP_DIR/8bit-updater.zip -d $BUILD_DIR/switch/8bit-updater
+    touch switch/8bit-updater/.8bit-updater.nro.star
+}
+
 HBMenu() {
     download_url=$(curl -s https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -130,6 +137,7 @@ mkdir -p $OVERLAY_DIR
 Hekate
 
 # Homebrews
+8BU
 HBLoader
 Sphaira
 ThemeInjector
