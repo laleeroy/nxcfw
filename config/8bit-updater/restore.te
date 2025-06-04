@@ -26,14 +26,14 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	color(ORANGE);	
 	p("Restoring old cfw")
 	p()	
-	movefile("sd:/oldcfw/atmosphere", "sd:/");
-	movefile("sd:/oldcfw/bootloader", "sd:/");
-	movefile("sd:/oldcfw/config", "sd:/");
-	movefile("sd:/oldcfw/switch", "sd:/");
-	movefile("sd:/oldcfw/SaltySD", "sd:/");
-	movefile("sd:/oldcfw/payload.bin", "sd:/payload.bin");
-	movefile("sd:/oldcfw/exosphere.ini", "sd:/exosphere.ini");
-	movefile("sd:/oldcfw/hbmenu.nro", "sd:/hbmenu.nro");
+	copydir("sd:/oldcfw/atmosphere", "sd:/");
+	copydir("sd:/oldcfw/bootloader", "sd:/");
+	copydir("sd:/oldcfw/config", "sd:/");
+	copydir("sd:/oldcfw/switch", "sd:/");
+	copydir("sd:/oldcfw/SaltySD", "sd:/");
+	copyfile("sd:/oldcfw/payload.bin", "sd:/payload.bin");
+	copyfile("sd:/oldcfw/exosphere.ini", "sd:/exosphere.ini");
+	copyfile("sd:/oldcfw/hbmenu.nro", "sd:/hbmenu.nro");
 	clear()
 
 	color(YELLOW);
