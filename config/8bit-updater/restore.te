@@ -1,0 +1,49 @@
+BLUE = 0x0000FF
+YELLOW = 0xFFFF00 
+RED = 0xFF0000
+GREEN = 0x00FF00
+WHITE = 0xFFFFFF
+ORANGE = 0xFFA500
+VIOLET = 0x8F00FF
+
+p=println
+wait={t=timer()while(timer()<(t+tw)){print()}}
+
+	color(RED);
+	p("Deleting current cfw")
+	p()
+	copydir("sd:/switch/8bit-updater", "sd:/oldcfw/switch");
+	deldir("sd:/atmosphere");
+	deldir("sd:/bootloader");
+	deldir("sd:/config");
+	deldir("sd:/switch");
+	deldir("sd:/SaltySD");
+	delfile("sd:/payload.bin");
+	delfile("sd:/exosphere.ini");
+	delfile("sd:/hbmenu.nro");
+	clear()
+
+	color(ORANGE);	
+	p("Restoring old cfw")
+	p()	
+	movefile("sd:/oldcfw/atmosphere", "sd:/");
+	movefile("sd:/oldcfw/bootloader", "sd:/");
+	movefile("sd:/oldcfw/config", "sd:/");
+	movefile("sd:/oldcfw/switch", "sd:/");
+	movefile("sd:/oldcfw/SaltySD", "sd:/");
+	movefile("sd:/oldcfw/payload.bin", "sd:/payload.bin");
+	movefile("sd:/oldcfw/exosphere.ini", "sd:/exosphere.ini");
+	movefile("sd:/oldcfw/hbmenu.nro", "sd:/hbmenu.nro");
+	clear()
+
+	color(YELLOW);
+	p("Finishing touches")
+	p()
+	deldir("sd:/oldcfw");
+	clear()
+
+	color(GREEN);	
+	p("Restoration complete!")
+	p()
+	p("Rebooting")
+	wait(tw = 1000)
