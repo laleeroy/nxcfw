@@ -48,14 +48,26 @@ jobs:
 
       - name: Get Homebrew Versions
         id: get_versions
+        working-directory: ams
         run: |
           # Define a function to get the latest tag name from a repo
           get_latest_tag() {
             curl -s "https://api.github.com/repos/$1/releases/latest" | jq -r ".tag_name" | tr -d 'v'
           }
 
+          # Get compatible fw and ams version
+          AMSMAJORVER=$(grep 'define ATMOSPHERE_RELEASE_VERSION_MAJOR\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          AMSMINORVER=$(grep 'define ATMOSPHERE_RELEASE_VERSION_MINOR\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          AMSMICROVER=$(grep 'define ATMOSPHERE_RELEASE_VERSION_MICRO\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          HOS_MAJORVER=$(grep 'define ATMOSPHERE_SUPPORTED_HOS_VERSION_MAJOR\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          HOS_MINORVER=$(grep 'define ATMOSPHERE_SUPPORTED_HOS_VERSION_MINOR\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          HOS_MICROVER=$(grep 'define ATMOSPHERE_SUPPORTED_HOS_VERSION_MICRO\b' libraries/libvapours/include/vapours/ams/ams_api_version.h | tr -s [:blank:] | cut -d' ' -f3)
+          AMS_VERSION=$AMSMAJORVER.$AMSMINORVER.$AMSMICROVER
+          HOSVER=$HOS_MAJORVER.$HOS_MINORVER.$HOS_MICROVER
+          echo "AMS_VERSION=${AMS_VERSION}" >> $GITHUB_ENV
+          echo "HOSVER=${HOSVER}" >> $GITHUB_ENV          
+
           # Fetch and set version for each homebrew
-          echo "AMS_VERSION=$(get_latest_tag AtmosphereNX/Atmosphere)" >> $GITHUB_ENV
           echo "HEKATE_VERSION=$(get_latest_tag CTCaer/hekate)" >> $GITHUB_ENV
           echo "HBMENU_VERSION=$(get_latest_tag switchbrew/nx-hbmenu)" >> $GITHUB_ENV
           echo "HBLOADER_VERSION=$(get_latest_tag switchbrew/nx-hbloader)" >> $GITHUB_ENV
@@ -93,7 +105,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: 8BP-${{ github.ref_name }}.zip
-          name: 8BP-${{ github.ref_name }}
+          name: For Firmware ${{ env.HOSVER }} & Below
           tag_name: ${{ github.ref_name }}
           body: |
             8BP-${{ github.ref_name }} Contains:
