@@ -17,7 +17,6 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 
 	p("Backing up current cfw")
 	p()
-	deldir("sd:/oldcfw")
 	mkdir("sd:/oldcfw")	
 	movefile("sd:/atmosphere", "sd:/oldcfw/atmosphere");
 	movefile("sd:/bootloader", "sd:/oldcfw/bootloader");
@@ -27,6 +26,7 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	movefile("sd:/payload.bin", "sd:/oldcfw/payload.bin");
 	movefile("sd:/exosphere.ini", "sd:/oldcfw/exosphere.ini");
 	movefile("sd:/hbmenu.nro", "sd:/oldcfw/hbmenu.nro");
+	movefile("sd:/pacman/config/8bit-updater/restore.te", "sd:/oldcfw/restore.te");
 	clear()
 
 	color(RED);	
