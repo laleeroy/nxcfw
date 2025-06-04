@@ -39,6 +39,10 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	color(YELLOW);
 	p("Finishing touches")
 	p()
+	if (fsexists("sd:/oldcfw/bootloader/hekate_ipl.ini.bak")) {
+	delfile("sd:/bootloader/hekate_ipl.ini");
+	copyfile("sd:/oldcfw/bootloader/hekate_ipl.ini.bak", "sd:/bootloader/hekate_ipl.ini");
+	}
 	deldir("sd:/oldcfw");
 	clear()
 
