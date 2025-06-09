@@ -87,6 +87,12 @@ Edizon() {
     $UNZIP_COMMAND $TMP_DIR/EdiZon-Overlay.zip -d $BUILD_DIR/
 }
 
+FPSLocker() {
+    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    cp $TMP_DIR/FPSLocker.ovl -d $BUILD_DIR/$OVERLAY_DIR
+}
+
 ReverseNX() {
     download_url=$(curl -s https://api.github.com/repos/masagrator/ReverseNX-RT/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -146,6 +152,7 @@ SaltyNX
 # Overlays
 Ovlloader
 Edizon
+FPSLocker
 ReverseNX
 SysModules
 Sys-Clk
