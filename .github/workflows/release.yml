@@ -82,6 +82,7 @@ jobs:
           echo "REVERSENX_VERSION=$(get_latest_tag masagrator/ReverseNX-RT)" >> $GITHUB_ENV
           echo "SYSMODULES_VERSION=$(get_latest_tag WerWolv/ovl-sysmodules)" >> $GITHUB_ENV
           echo "SYSCLK_VERSION=$(get_latest_tag retronx-team/sys-clk)" >> $GITHUB_ENV
+          echo "FPSL_VERSION=$(get_latest_tag masagrator/FPSLocker)" >> $GITHUB_ENV
           echo "EMUIIBO_VERSION=$(get_latest_tag XorTroll/emuiibo)" >> $GITHUB_ENV
           echo "STATUSMONITOR_VERSION=$(get_latest_tag masagrator/Status-Monitor-Overlay)" >> $GITHUB_ENV
           echo "ULTRAHAND_VERSION=$(get_latest_tag ppkantorski/Ultrahand-Overlay)" >> $GITHUB_ENV
@@ -123,6 +124,7 @@ jobs:
             • reversenx v${{ env.REVERSENX_VERSION }}
             • sysmodules v${{ env.SYSMODULES_VERSION }}
             • sys-clk v${{ env.SYSCLK_VERSION }}
+            • fps locker v${{ env.FPSL_VERSION }}
             • emuiibo v${{ env.EMUIIBO_VERSION }}
             • status monitor v${{ env.STATUSMONITOR_VERSION }}
             • ultrahand v${{ env.ULTRAHAND_VERSION }}
