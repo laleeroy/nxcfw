@@ -124,6 +124,7 @@ jobs:
             • reversenx v${{ env.REVERSENX_VERSION }}
             • sysmodules v${{ env.SYSMODULES_VERSION }}
             • sys-clk v${{ env.SYSCLK_VERSION }}
+            • sys-patch v${{ env.SYSPATCH_VERSION }}
             • fps locker v${{ env.FPSL_VERSION }}
             • emuiibo v${{ env.EMUIIBO_VERSION }}
             • status monitor v${{ env.STATUSMONITOR_VERSION }}

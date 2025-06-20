@@ -156,6 +156,7 @@ FPSLocker
 ReverseNX
 SysModules
 Sys-Clk
+Sys-Patch
 Emuiibo
 StatusMonitor
 Ultrahand
