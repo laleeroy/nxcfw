@@ -45,9 +45,6 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	color(ORANGE);
 	p("Restoring important configs")
 	p()
-	if (fsexists("sd:/oldcfw/switch/8bit-updater")) {
-	copydir("sd:/oldcfw/switch/8bit-updater", "sd:/switch");
-	}
 	if (fsexists("sd:/oldcfw/switch/tinfoil/options.json")) {
 	mkdir("sd:/switch/tinfoil")	
 	copyfile("sd:/oldcfw/switch/tinfoil/options.json", "sd:/switch/tinfoil/options.json");
