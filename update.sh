@@ -50,7 +50,7 @@ QuickNTP() {
 }
 
 SaltyNX() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r ".assets[0].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r ".assets[1].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/SaltyNX*.zip -d $BUILD_DIR/
 }
@@ -100,7 +100,7 @@ Edizon() {
 }
 
 FPSLocker() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r ".assets[0].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r ".assets[1].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     cp $TMP_DIR/FPSLocker.ovl -d $BUILD_DIR/$OVERLAY_DIR
 }
