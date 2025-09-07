@@ -68,6 +68,12 @@ ThemeInjector() {
     cp $TMP_DIR/NXThemesInstaller.nro -d $BUILD_DIR/$HOMEBREW_DIR
 }
 
+ThemezerNX() {
+    download_url=$(curl -s https://api.github.com/repos/suchmememanyskill/themezer-nx/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    cp $TMP_DIR/themezer-nx.nro -d $BUILD_DIR/$HOMEBREW_DIR
+}
+
 DBI() {
     download_url=$(curl -s https://api.github.com/repos/rashevskyv/dbi/releases/latest | jq -r ".assets[1].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -153,6 +159,7 @@ Hekate
 HBLoader
 Sphaira
 ThemeInjector
+ThemezerNX
 SaltyNX
 
 # Overlays
