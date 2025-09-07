@@ -43,6 +43,12 @@ Ovlloader() {
     $UNZIP_COMMAND $TMP_DIR/nx-ovlloader.zip -d $BUILD_DIR
 }
 
+QuickNTP() {
+    download_url=$(curl -s https://api.github.com/repos/nedex/QuickNTP/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    $UNZIP_COMMAND $TMP_DIR/quickntp*.zip -d $BUILD_DIR
+}
+
 SaltyNX() {
     download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -151,6 +157,7 @@ SaltyNX
 
 # Overlays
 Ovlloader
+QuickNTP
 Edizon
 FPSLocker
 ReverseNX
