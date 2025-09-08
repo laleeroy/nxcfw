@@ -35,7 +35,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y jq python3 python3-pip
-          pip3 install -r switch-logo-patcher/requirements.txt
+          pip3 install -r switch-logo-patcher/requirements.txt --break-system-packages
 
       - name: Generate BL Patches
         run: |
