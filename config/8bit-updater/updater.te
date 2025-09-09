@@ -77,8 +77,17 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	clear()
 	
 	color(YELLOW);
-	p("Finishing touches")
+	p("Finalizing")
 	p()
+	if (emu()) {
+	p("Emunand detected")
+	wait(tw = 1000)
+	}.else() {
+	p("Enabling autoboot")
+	delfile("sd:/bootloader/hekate_ipl.ini")
+	wait(tw = 1000)
+	movefile("sd:/pacman/autoboot.ini", "sd:/bootloader/hekate_ipl.ini");
+	}
 	deldir("sd:/config/8bit-updater");
 	deldir("sd:/pacman");
 	clear()
