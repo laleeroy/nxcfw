@@ -79,11 +79,7 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	color(YELLOW);
 	p("Finalizing")
 	p()
-	if (emu()) {
-	p("Emunand detected")
-	wait(tw = 1000)
-	}.else() {
-	p("Enabling autoboot")
+	if (!emu()) {
 	delfile("sd:/bootloader/hekate_ipl.ini")
 	wait(tw = 1000)
 	movefile("sd:/pacman/autoboot.ini", "sd:/bootloader/hekate_ipl.ini");
