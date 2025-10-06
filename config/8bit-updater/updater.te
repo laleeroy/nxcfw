@@ -8,13 +8,14 @@ VIOLET = 0x8F00FF
 
 p=println
 wait={t=timer()while(timer()<(t+tw)){print()}}
+pacmanuser=fsexists("sd:/atmosphere/config/version")
 
 	color(WHITE);
 	p("Deleting old cfw remnants")
 	p()
 	deldir("sd:/oldcfw")
 	clear()
-
+	if (pacmanuser) {
 	p("Backing up current cfw")
 	p()
 	mkdir("sd:/oldcfw")	
@@ -31,7 +32,6 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	copydir("sd:/warmboot_mariko", "sd:/oldcfw/warmboot_mariko");
 	}
 	clear()
-
 	color(RED);	
 	p("Installing new cfw")
 	p()	
@@ -75,6 +75,10 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	copydir("sd:/oldcfw/bootloader/ini", "sd:/bootloader");
 	}
 	clear()
+	}.else() {
+	p("Hello Nigguh")
+	wait(tw = 5000)
+	}
 	
 	color(YELLOW);
 	p("Finalizing")
@@ -84,7 +88,6 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	wait(tw = 1000)
 	movefile("sd:/pacman/autoboot.ini", "sd:/bootloader/hekate_ipl.ini");
 	}
-	deldir("sd:/config/8bit-updater");
 	deldir("sd:/pacman");
 	clear()
 
