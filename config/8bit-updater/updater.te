@@ -8,13 +8,14 @@ VIOLET = 0x8F00FF
 
 p=println
 wait={t=timer()while(timer()<(t+tw)){print()}}
+pacmanuser=fsexists("sd:/atmosphere/config/version")
 
 	color(WHITE);
 	p("Deleting old cfw remnants")
 	p()
 	deldir("sd:/oldcfw")
 	clear()
-
+	if (!pacmanuser) {
 	p("Backing up current cfw")
 	p()
 	mkdir("sd:/oldcfw")	
@@ -31,7 +32,6 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	copydir("sd:/warmboot_mariko", "sd:/oldcfw/warmboot_mariko");
 	}
 	clear()
-
 	color(RED);	
 	p("Installing new cfw")
 	p()	
@@ -75,6 +75,54 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	copydir("sd:/oldcfw/bootloader/ini", "sd:/bootloader");
 	}
 	clear()
+	}.else() {
+	color(RED);	
+	p("Deleting possible conflicting files")
+	p("")
+	delfile("sd:/atmosphere/stratosphere.romfs");
+	deldir("sd:/atmosphere/contents/690000000000000D");
+	deldir("sd:/atmosphere/contents/420000000007E51A");
+	deldir("sd:/atmosphere/contents/010000000000bd00");
+	deldir("sd:/atmosphere/contents/0100000000000032");
+	deldir("sd:/atmosphere/contents/0100000000000034");
+	deldir("sd:/atmosphere/contents/0100000000000037");
+	deldir("sd:/atmosphere/contents/0100000000000036");
+	deldir("sd:/atmosphere/contents/010000000000003C");
+	deldir("sd:/atmosphere/contents/010000000000002b");
+	deldir("sd:/atmosphere/contents/0100000000000042");
+	deldir("sd:/atmosphere/contents/010000000000000D");
+	deldir("sd:/atmosphere/contents/010000000000100D");
+	deldir("sd:/atmosphere/contents/4200000000000010");
+	deldir("sd:/atmosphere/contents/0100000000000008");
+	deldir("sd:/atmosphere/contents/420000000000000E");
+	deldir("sd:/atmosphere/contents/010000000000100B");
+	deldir("sd:/atmosphere/contents/01FF415446660000");
+	deldir("sd:/atmosphere/contents/00FF747765616BFF");
+	deldir("sd:/atmosphere/contents/00FF0012656180FF");
+	deldir("sd:/atmosphere/contents/0100000000001013");
+	deldir("sd:/atmosphere/contents/010000000007E51A");
+	deldir("sd:/atmosphere/contents/0100000000001000");
+	deldir("sd:/atmosphere/contents/0100000000001005");
+	deldir("sd:/atmosphere/contents/0100000000001007");
+	deldir("sd:/atmosphere/contents/0100000000001013");
+	deldir("sd:/atmosphere/contents/010000000000100C");
+	deldir("sd:/atmosphere/contents/0000000000534C56");
+	deldir("sd:/atmosphere/contents/0100000000000081");
+	clear()
+	color(ORANGE);
+	p("Installing new cfw")
+	p()
+	copydir("sd:/pacman/atmosphere", "sd:/")
+	copydir("sd:/pacman/bootloader", "sd:/")
+	copydir("sd:/pacman/config", "sd:/")
+	copydir("sd:/pacman/emuiibo", "sd:/")
+	copydir("sd:/pacman/SaltySD", "sd:/")
+	copydir("sd:/pacman/warmboot_mariko", "sd:/")
+	copyfile("sd:/pacman/payload.bin", "sd:/payload.bin")
+	copyfile("sd:/pacman/hbmenu.nro", "sd:/hbmenu.nro")
+	copyfile("sd:/pacman/exosphere.ini", "sd:/exosphere.ini")
+	clear()
+	}
 	
 	color(YELLOW);
 	p("Finalizing")
@@ -84,7 +132,13 @@ wait={t=timer()while(timer()<(t+tw)){print()}}
 	wait(tw = 1000)
 	movefile("sd:/pacman/autoboot.ini", "sd:/bootloader/hekate_ipl.ini");
 	}
-	deldir("sd:/config/8bit-updater");
+	if (pacmanuser) {
+	delfile("sd:/config/8bit-updater/updater.te");
+	delfile("sd:/config/8bit-updater/updater.bin");
+	delfile("sd:/config/8bit-updater/updater.bmp");
+	delfile("sd:/config/8bit-updater/updater.ipl");
+	delfile("sd:/config/8bit-updater/restore.te");
+	}
 	deldir("sd:/pacman");
 	clear()
 
