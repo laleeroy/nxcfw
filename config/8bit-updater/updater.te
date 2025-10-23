@@ -129,13 +129,11 @@ pacmanuser=fsexists("sd:/atmosphere/config/version")
 	wait(tw = 1000)
 	movefile("sd:/pacman/autoboot.ini", "sd:/bootloader/hekate_ipl.ini");
 	}
-	if (pacmanuser) {
 	delfile("sd:/config/8bit-updater/updater.te");
 	delfile("sd:/config/8bit-updater/updater.bin");
 	delfile("sd:/config/8bit-updater/updater.bmp");
 	delfile("sd:/config/8bit-updater/updater.ipl");
 	delfile("sd:/config/8bit-updater/restore.te");
-	}
 	deldir("sd:/pacman");
 	clear()
 
