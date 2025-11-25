@@ -77,8 +77,11 @@ pacmanuser=fsexists("sd:/atmosphere/config/version")
 	p("Deleting possible conflicting files")
 	p("")
 	delfile("sd:/atmosphere/stratosphere.romfs");
+	deldir("sd:/atmosphere/contents/00FF0000000002AA");
+	deldir("sd:/atmosphere/contents/00FF0000636C6BFF");
+	deldir("sd:/atmosphere/contents/0100000000000352");
+	deldir("sd:/atmosphere/contents/420000000000000B");
 	deldir("sd:/atmosphere/contents/690000000000000D");
-	deldir("sd:/atmosphere/contents/420000000007E51A");
 	deldir("sd:/atmosphere/contents/010000000000bd00");
 	deldir("sd:/atmosphere/contents/0100000000000032");
 	deldir("sd:/atmosphere/contents/0100000000000034");
