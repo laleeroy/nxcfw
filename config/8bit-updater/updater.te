@@ -71,6 +71,9 @@ pacmanuser=fsexists("sd:/atmosphere/config/version")
 	if (fsexists("sd:/oldcfw/switchroot/joycon.bin")) {
 	copyfile("sd:/oldcfw/switchroot/joycon.bin", "sd:/switchroot/joycon.bin")
 	}		
+	if (fsexists("sd:/oldcfw/bootloader/ini")) {
+	copydir("sd:/oldcfw/bootloader/ini", "sd:/bootloader");
+	}
 	clear()
 	}.else() {
 	color(RED);	
