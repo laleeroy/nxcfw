@@ -111,6 +111,8 @@ pacmanuser=fsexists("sd:/atmosphere/config/version")
 	deldir("sd:/atmosphere/contents/010000000000100C");
 	deldir("sd:/atmosphere/contents/0000000000534C56");
 	deldir("sd:/atmosphere/contents/0100000000000081");
+	deldir("sd:/bootloader/payloads/fusee.bin");
+	deldir("sd:/bootloader/hekate_ipl.ini");
 	clear()
 	color(ORANGE);
 	p("Installing new cfw")
