@@ -38,7 +38,7 @@ Hekate() {
 }
 
 Ovlloader() {
-    download_url=$(curl -s https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest | jq -r ".assets[0].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/nx-ovlloader.zip -d $BUILD_DIR
 }
@@ -112,7 +112,7 @@ ReverseNX() {
 }
 
 SysModules() {
-    download_url=$(curl -s https://api.github.com/repos/WerWolv/ovl-sysmodules/releases/latest | jq -r ".assets[0].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     cp $TMP_DIR/ovlSysmodules.ovl -d $BUILD_DIR/$OVERLAY_DIR
 }
