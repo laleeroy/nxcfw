@@ -60,10 +60,10 @@ pacmanuser=fsexists("sd:/atmosphere/config/version")
 	copydir("sd:/oldcfw/switch/Switchfin", "sd:/switch");
 	}
 	if (fsexists("sd:/oldcfw/switch/Switchseerr")) {
-	copydir("sd:/oldcfw/switch/Switchserr", "sd:/switch");
+	copydir("sd:/oldcfw/switch/Switchseerr", "sd:/switch");
 	}
 	if (fsexists("sd:/oldcfw/config/switchseerr")) {
-	copydir("sd:/oldcfw/config/switchserr", "sd:/config");
+	copydir("sd:/oldcfw/config/switchseerr", "sd:/config");
 	}
 	if (fsexists("sd:/oldcfw/switch/DBI/dbi.locations")) {
 	copyfile("sd:/oldcfw/switch/DBI/dbi.locations", "sd:/switch/DBI/dbi.locations");
