@@ -37,12 +37,6 @@ Hekate() {
     mv $BUILD_DIR/hekate*.bin $BUILD_DIR/payload.bin
 }
 
-Ovlloader() {
-    download_url=$(curl -s https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest | jq -r ".assets[0].browser_download_url")
-    curl -O -L $download_url --output-dir $TMP_DIR
-    $UNZIP_COMMAND $TMP_DIR/nx-ovlloader.zip -d $BUILD_DIR
-}
-
 QuickNTP() {
     download_url=$(curl -s https://api.github.com/repos/nedex/QuickNTP/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -163,7 +157,6 @@ ThemezerNX
 SaltyNX
 
 # Overlays
-Ovlloader
 QuickNTP
 Edizon
 FPSLocker
