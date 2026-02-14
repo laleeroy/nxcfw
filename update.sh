@@ -131,9 +131,9 @@ StatusMonitor() {
 }
 
 Ultrahand() {
-    download_url=$(curl -s https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest | jq -r ".assets[1].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest | jq -r ".assets[2].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
-    cp $TMP_DIR/ovlmenu.ovl -d $BUILD_DIR/$OVERLAY_DIR
+    $UNZIP_COMMAND $TMP_DIR/sdout.zip -d $BUILD_DIR/
 }
 
 MissionControl() {
