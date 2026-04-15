@@ -49,6 +49,13 @@ SaltyNX() {
     $UNZIP_COMMAND $TMP_DIR/SaltyNX*.zip -d $BUILD_DIR/
 }
 
+DBI() {
+    download_url=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest | \
+                   jq -r '.assets[] | select(.name | test("DBI\\..*\\.en\\.nro")) | .browser_download_url')
+    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    cp "$TMP_DIR"/DBI*.nro "$BUILD_DIR/switch/DBI/DBI.nro"
+}
+
 Sphaira() {
     download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -66,12 +73,6 @@ ThemezerNX() {
     download_url=$(curl -s https://api.github.com/repos/suchmememanyskill/themezer-nx/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     cp $TMP_DIR/themezer-nx.nro -d $BUILD_DIR/$HOMEBREW_DIR
-}
-
-DBI() {
-    download_url=$(curl -s https://api.github.com/repos/rashevskyv/dbi/releases/latest | jq -r ".assets[1].browser_download_url")
-    curl -O -L $download_url --output-dir $TMP_DIR
-    cp $TMP_DIR/DBI.nro -d $BUILD_DIR/$HOMEBREW_DIR/DBI
 }
 
 Appstore() {
@@ -155,6 +156,7 @@ Sphaira
 ThemeInjector
 ThemezerNX
 SaltyNX
+DBI
 
 # Overlays
 QuickNTP
