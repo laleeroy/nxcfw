@@ -10,4 +10,4 @@ updater2p=0
 bootprotect=0
 
 [8Bit-Updater]
-payload=/pacman/config/8bit-updater/updater.bin
+payload=/pacman/.ignore/updater.bin
