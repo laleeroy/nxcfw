@@ -56,6 +56,12 @@ DBI() {
     cp "$TMP_DIR"/DBI*.nro "$BUILD_DIR/switch/DBI/DBI.nro"
 }
 
+HekateToolbox() {
+    download_url=$(curl -s https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases/latest | jq -r ".assets[0].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    cp $TMP_DIR/HekateToolbox.nro -d $BUILD_DIR/switch
+}
+
 Sphaira() {
     download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -157,6 +163,7 @@ ThemeInjector
 ThemezerNX
 SaltyNX
 DBI
+HekateToolbox
 
 # Overlays
 QuickNTP
