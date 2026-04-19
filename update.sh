@@ -156,7 +156,6 @@ mkdir -p $OVERLAY_DIR
 Hekate
 
 # Homebrews
-8BU
 HBLoader
 Sphaira
 ThemeInjector

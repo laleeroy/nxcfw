@@ -4,6 +4,7 @@
 
 f sd:/backup/previous-cfw/switch/tinfoil/options.json, sd:/switch/tinfoil/options.json
 f sd:/backup/previous-cfw/switch/tinfoil/locations.conf, sd:/switch/tinfoil/locations.conf
+d sd:/backup/previous-cfw/switch/8bit-updater, sd:/switch
 d sd:/backup/previous-cfw/switch/Switchfin, sd:/switch
 d sd:/backup/previous-cfw/switch/Switchseerr, sd:/switch
 d sd:/backup/previous-cfw/config/switchseerr, sd:/config
