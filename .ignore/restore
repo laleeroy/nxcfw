@@ -2,14 +2,12 @@
 # Format: f source, destination (for files)
 #         d source, destination (for directories)
 
-f sd:/oldcfw/switch/tinfoil/options.json, sd:/switch/tinfoil/options.json
-f sd:/oldcfw/switch/tinfoil/locations.conf, sd:/switch/tinfoil/locations.conf
-d sd:/oldcfw/switch/Switchfin, sd:/switch
-d sd:/oldcfw/switch/Switchseerr, sd:/switch
-d sd:/oldcfw/config/switchseerr, sd:/config
-d sd:/oldcfw/switch/Cyberfoil, sd:/switch
-f sd:/oldcfw/switch/DBI/dbi.locations, sd:/switch/DBI/dbi.locations
-f sd:/oldcfw/switch/prod.keys, sd:/switch/prod.keys
-f sd:/oldcfw/switchroot/joycon.mac, sd:/switchroot/joycon.mac
-f sd:/oldcfw/switchroot/joycon.bin, sd:/switchroot/joycon.bin
-d sd:/oldcfw/bootloader/ini, sd:/bootloader
+f sd:/backup/previous-cfw/switch/tinfoil/options.json, sd:/switch/tinfoil/options.json
+f sd:/backup/previous-cfw/switch/tinfoil/locations.conf, sd:/switch/tinfoil/locations.conf
+d sd:/backup/previous-cfw/switch/Switchfin, sd:/switch
+d sd:/backup/previous-cfw/switch/Switchseerr, sd:/switch
+d sd:/backup/previous-cfw/config/switchseerr, sd:/config
+d sd:/backup/previous-cfw/switch/Cyberfoil, sd:/switch
+f sd:/backup/previous-cfw/switch/DBI/dbi.locations, sd:/switch/DBI/dbi.locations
+f sd:/backup/previous-cfw/switch/prod.keys, sd:/switch/prod.keys
+d sd:/backup/previous-cfw/bootloader/ini, sd:/bootloader

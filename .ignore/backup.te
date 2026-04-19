@@ -1,0 +1,21 @@
+p=println
+mv=movefile
+cp=copydir
+
+	p("Deleting previous cfw remnants\n")
+	deldir("sd:/backup/previous-cfw")
+	clear()
+	p("Backing up current cfw\n")
+	mkdir("sd:/backup/previous-cfw")	
+	mv("sd:/atmosphere", "sd:/backup/previous-cfw/atmosphere");
+	mv("sd:/bootloader", "sd:/backup/previous-cfw/bootloader");
+	mv("sd:/config", "sd:/backup/previous-cfw/config");
+	mv("sd:/SaltySD", "sd:/backup/previous-cfw/SaltySD");
+	mv("sd:/switch", "sd:/backup/previous-cfw/switch");
+	mv("sd:/exosphere.ini", "sd:/backup/previous-cfw/exosphere.ini");
+	mv("sd:/hbmenu.nro", "sd:/backup/previous-cfw/hbmenu.nro");
+	mv("sd:/payload.bin", "sd:/backup/previous-cfw/payload.bin");
+	if (fsexists("sd:/warmboot_mariko")) {
+	cp("sd:/warmboot_mariko", "sd:/backup/previous-cfw/warmboot_mariko");
+	}
+	clear()
