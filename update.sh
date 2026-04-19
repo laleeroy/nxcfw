@@ -89,7 +89,7 @@ Appstore() {
 
 # Overlays
 Sys-Patch() {
-    download_url=$(curl -s https://api.github.com/repos/impeeza/sys-patch/releases/latest | jq -r ".assets[0].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/borntohonk/sys-patch/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/sys-patch*.zip -d $BUILD_DIR/
 }
