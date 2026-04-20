@@ -172,7 +172,6 @@ DBI
 HekateToolbox
 
 # Overlays
-QuickNTP
 Edizon
 FPSLocker
 ReverseNX
