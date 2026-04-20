@@ -40,7 +40,7 @@ Hekate() {
 Lockpick_RCMaster() {
     download_url=$(curl -s https://api.github.com/repos/THZoria/Lockpick_RCMaster/releases/latest | jq -r ".assets[1].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
-    mv $BUILD_DIR/Lockpick_RCM.bin $BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin
+    mv $TMP_DIR/Lockpick_RCM.bin $BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin
 }
 
 QuickNTP() {
