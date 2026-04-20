@@ -157,6 +157,7 @@ MissionControl() {
 
 mkdir $TMP_DIR
 mkdir -p $OVERLAY_DIR
+mkdir -p $HOMEBREW_DIR/DBI
 
 # Bootloaders
 Hekate
