@@ -37,6 +37,12 @@ Hekate() {
     mv $BUILD_DIR/hekate*.bin $BUILD_DIR/payload.bin
 }
 
+Lockpick_RCMaster() {
+    download_url=$(curl -s https://api.github.com/repos/THZoria/Lockpick_RCMaster/releases/latest | jq -r ".assets[1].browser_download_url")
+    curl -O -L $download_url --output-dir $TMP_DIR
+    mv $BUILD_DIR/Lockpick_RCM.bin $BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin
+}
+
 QuickNTP() {
     download_url=$(curl -s https://api.github.com/repos/nedex/QuickNTP/releases/latest | jq -r ".assets[0].browser_download_url")
     curl -O -L $download_url --output-dir $TMP_DIR
@@ -154,6 +160,7 @@ mkdir -p $OVERLAY_DIR
 
 # Bootloaders
 Hekate
+Lockpick_RCMaster
 
 # Homebrews
 HBLoader
