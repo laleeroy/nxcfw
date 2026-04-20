@@ -50,9 +50,9 @@ QuickNTP() {
 }
 
 SaltyNX() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r ".assets[1].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r '.assets[] | select(.name=="SaltyNX.zip") | .browser_download_url')
     curl -O -L $download_url --output-dir $TMP_DIR
-    $UNZIP_COMMAND $TMP_DIR/SaltyNX*.zip -d $BUILD_DIR/
+    $UNZIP_COMMAND $TMP_DIR/SaltyNX.zip -d $BUILD_DIR/
 }
 
 DBI() {
