@@ -1,0 +1,14 @@
+# Restore configuration files
+# Format: f source, destination (for files)
+#         d source, destination (for directories)
+
+f switch/tinfoil/options.json, sd:/switch/tinfoil/options.json
+f switch/tinfoil/locations.conf, sd:/switch/tinfoil/locations.conf
+d switch/8bit-updater, sd:/switch
+d switch/Switchfin, sd:/switch
+d switch/Switchseerr, sd:/switch
+d config/switchseerr, sd:/config
+d switch/Cyberfoil, sd:/switch
+f switch/DBI/dbi.locations, sd:/switch/DBI/dbi.locations
+f switch/prod.keys, sd:/switch/prod.keys
+d bootloader/ini, sd:/bootloader
