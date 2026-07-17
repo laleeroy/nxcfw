@@ -57,10 +57,17 @@ SaltyNX() {
 }
 
 DBI() {
-    download_url=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest | \
-                   jq -r '.assets[] | select(.name | test("DBI\\..*\\.en\\.nro")) | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
-    cp "$TMP_DIR"/DBI*.nro "$BUILD_DIR/switch/DBI/DBI.nro"
+    release_data=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
+
+    dbi_url=$(echo "$release_data" | jq -r '.assets[] | select(.name == "DBI.nro") | .browser_download_url')
+    curl -O -L "$dbi_url" --output-dir "$TMP_DIR"
+
+    trans_url=$(echo "$release_data" | jq -r '.assets[] | select(.name == "translation_en.bin") | .browser_download_url')
+    curl -O -L "$trans_url" --output-dir "$TMP_DIR"
+    mv "$TMP_DIR/translation_en.bin" "$TMP_DIR/translation.bin"
+
+    cp "$TMP_DIR/DBI.nro" "$BUILD_DIR/switch/DBI/DBI.nro"
+    cp "$TMP_DIR/translation.bin" "$BUILD_DIR/switch/DBI/translation.bin"
 }
 
 HekateToolbox() {
