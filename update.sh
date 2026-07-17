@@ -115,7 +115,7 @@ Edizon() {
 }
 
 FPSLocker() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r ".assets[1].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r '.assets[] | select(.name == "FPSLocker.ovl") | .browser_download_url')
     curl -O -L $download_url --output-dir $TMP_DIR
     cp $TMP_DIR/FPSLocker.ovl -d $BUILD_DIR/$OVERLAY_DIR
 }
@@ -146,13 +146,13 @@ Emuiibo() {
 }
 
 StatusMonitor() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/Status-Monitor-Overlay/releases/latest | jq -r ".assets[1].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/masagrator/Status-Monitor-Overlay/releases/latest | jq -r '.assets[] | select(.name == "Status-Monitor-Overlay.zip") | .browser_download_url')
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/Status-Monitor-Overlay.zip -d $BUILD_DIR/
 }
 
 Ultrahand() {
-    download_url=$(curl -s https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest | jq -r ".assets[2].browser_download_url")
+    download_url=$(curl -s https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest | jq -r '.assets[] | select(.name == "sdout.zip") | .browser_download_url')
     curl -O -L $download_url --output-dir $TMP_DIR
     $UNZIP_COMMAND $TMP_DIR/sdout.zip -d $BUILD_DIR/
 }
