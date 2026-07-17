@@ -16,54 +16,59 @@ mkdir -p "$TMP_DIR"
 mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
 
+get_asset_url() {
+    curl -s "https://api.github.com/repos/$1/releases/latest" | jq -r "$2"
+}
+
+download() {
+    curl -O -L "$1" --output-dir "$TMP_DIR"
+}
+
+fetch_asset() {
+    download "$(get_asset_url "$@")"
+}
+
 8BU() {
-    download_url=$(curl -s https://api.github.com/repos/laleeroy/nxlinks/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset laleeroy/nxlinks '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/8bit-updater.zip -d "$BUILD_DIR/switch/8bit-updater"
     touch "$BUILD_DIR/switch/8bit-updater/.8bit-updater.nro.star"
 }
 
 HBMenu() {
-    download_url=$(curl -s https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset switchbrew/nx-hbmenu '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/nx-hbmenu_*.zip -d "$BUILD_DIR"
 }
 
 HBLoader() {
-    download_url=$(curl -s https://api.github.com/repos/switchbrew/nx-hbloader/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset switchbrew/nx-hbloader '.assets[0].browser_download_url'
     cp "$TMP_DIR"/hbl.nsp "$BUILD_DIR/atmosphere/"
 }
 
 Hekate() {
-    download_url=$(curl -s https://api.github.com/repos/CTCaer/hekate/releases/latest | jq -r '.assets[] | select(.name | test("Nyx.*\\.zip")) | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset CTCaer/hekate '.assets[] | select(.name | test("Nyx.*\\.zip")) | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/hekate*.zip -d "$BUILD_DIR"
     cp "$BUILD_DIR"/hekate*.bin "$BUILD_DIR/atmosphere/reboot_payload.bin"
     mv "$BUILD_DIR"/hekate*.bin "$BUILD_DIR/payload.bin"
 }
 
 Lockpick_RCM_Pro() {
-    download_url=$(curl -s https://api.github.com/repos/sthetix/Lockpick_RCM_Pro/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset sthetix/Lockpick_RCM_Pro '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/Lockpick_RCM_Pro*.zip -d "$BUILD_DIR"
     mv "$BUILD_DIR/bootloader/payloads/Lockpick_RCM"*.bin "$BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin"
 }
 
 SaltyNX() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/SaltyNX/releases/latest | jq -r '.assets[] | select(.name=="SaltyNX.zip") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset masagrator/SaltyNX '.assets[] | select(.name=="SaltyNX.zip") | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/SaltyNX.zip -d "$BUILD_DIR/"
 }
 
 DBI() {
-    release_data=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
+    local data
+    data=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
 
-    dbi_url=$(echo "$release_data" | jq -r '.assets[] | select(.name == "DBI.nro") | .browser_download_url')
-    curl -O -L "$dbi_url" --output-dir "$TMP_DIR"
+    download "$(echo "$data" | jq -r '.assets[] | select(.name == "DBI.nro") | .browser_download_url')"
+    download "$(echo "$data" | jq -r '.assets[] | select(.name == "translation_en.bin") | .browser_download_url')"
 
-    trans_url=$(echo "$release_data" | jq -r '.assets[] | select(.name == "translation_en.bin") | .browser_download_url')
-    curl -O -L "$trans_url" --output-dir "$TMP_DIR"
     mv "$TMP_DIR/translation_en.bin" "$TMP_DIR/translation.bin"
 
     cp "$TMP_DIR/DBI.nro" "$BUILD_DIR/switch/DBI/DBI.nro"
@@ -71,89 +76,74 @@ DBI() {
 }
 
 HekateToolbox() {
-    download_url=$(curl -s https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset WerWolv/Hekate-Toolbox '.assets[0].browser_download_url'
     cp "$TMP_DIR"/HekateToolbox.nro "$BUILD_DIR/switch/"
 }
 
 Sphaira() {
-    download_url=$(curl -s https://api.github.com/repos/ITotalJustice/sphaira/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset ITotalJustice/sphaira '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/sphaira.zip -d "$BUILD_DIR"
     cp "$BUILD_DIR/switch/sphaira/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
 
 ThemezerNX() {
-    download_url=$(curl -s https://api.github.com/repos/suchmememanyskill/themezer-nx/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset suchmememanyskill/themezer-nx '.assets[0].browser_download_url'
     cp "$TMP_DIR"/themezer-nx.nro "$BUILD_DIR/$HOMEBREW_DIR/"
 }
 
 Appstore() {
-    download_url=$(curl -s https://api.github.com/repos/fortheusers/hb-appstore/releases/latest | jq -r '.assets[] | select(.name == "appstore.nro") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset fortheusers/hb-appstore '.assets[] | select(.name == "appstore.nro") | .browser_download_url'
     cp "$TMP_DIR"/appstore.nro "$BUILD_DIR/$HOMEBREW_DIR/"
 }
 
-# Overlays
 Sys-Patch() {
-    download_url=$(curl -s https://api.github.com/repos/borntohonk/sys-patch/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset borntohonk/sys-patch '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/sys-patch*.zip -d "$BUILD_DIR/"
 }
 
 Edizon() {
-    download_url=$(curl -s https://api.github.com/repos/proferabg/Edizon-Overlay/releases/latest | jq -r '.assets[] | select(.name == "EdiZon-Overlay.zip") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset proferabg/Edizon-Overlay '.assets[] | select(.name == "EdiZon-Overlay.zip") | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/EdiZon-Overlay.zip -d "$BUILD_DIR/"
 }
 
 FPSLocker() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/FPSLocker/releases/latest | jq -r '.assets[] | select(.name == "FPSLocker.ovl") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset masagrator/FPSLocker '.assets[] | select(.name == "FPSLocker.ovl") | .browser_download_url'
     cp "$TMP_DIR"/FPSLocker.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 ReverseNX() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/ReverseNX-RT/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset masagrator/ReverseNX-RT '.assets[0].browser_download_url'
     cp "$TMP_DIR"/ReverseNX-RT-ovl.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 SysModules() {
-    download_url=$(curl -s https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset ppkantorski/ovl-sysmodules '.assets[0].browser_download_url'
     cp "$TMP_DIR"/ovlSysmodules.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 Sys-Clk() {
-    download_url=$(curl -s https://api.github.com/repos/retronx-team/sys-clk/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset retronx-team/sys-clk '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/sys-clk*.zip -x README.md -d "$BUILD_DIR/"
 }
 
 Emuiibo() {
-    download_url=$(curl -s https://api.github.com/repos/XorTroll/emuiibo/releases/latest | jq -r '.assets[] | select(.name == "emuiibo.zip") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset XorTroll/emuiibo '.assets[] | select(.name == "emuiibo.zip") | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/emuiibo.zip -d "$TMP_DIR"
     cp -r "$TMP_DIR/SdOut/"* "$BUILD_DIR"
 }
 
 StatusMonitor() {
-    download_url=$(curl -s https://api.github.com/repos/masagrator/Status-Monitor-Overlay/releases/latest | jq -r '.assets[] | select(.name == "Status-Monitor-Overlay.zip") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset masagrator/Status-Monitor-Overlay '.assets[] | select(.name == "Status-Monitor-Overlay.zip") | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/Status-Monitor-Overlay.zip -d "$BUILD_DIR/"
 }
 
 Ultrahand() {
-    download_url=$(curl -s https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest | jq -r '.assets[] | select(.name == "sdout.zip") | .browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset ppkantorski/Ultrahand-Overlay '.assets[] | select(.name == "sdout.zip") | .browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/sdout.zip -d "$BUILD_DIR/"
 }
 
 MissionControl() {
-    download_url=$(curl -s https://api.github.com/repos/ndeadly/MissionControl/releases/latest | jq -r '.assets[0].browser_download_url')
-    curl -O -L "$download_url" --output-dir "$TMP_DIR"
+    fetch_asset ndeadly/MissionControl '.assets[0].browser_download_url'
     "$UNZIP_COMMAND" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
 }
 
