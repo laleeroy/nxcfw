@@ -15,6 +15,7 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 mkdir -p "$TMP_DIR"
 mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
+mkdir -p "$BUILD_DIR/switch/ThemezerNX"
 
 get_asset_url() {
     curl -s "https://api.github.com/repos/$1/releases/latest" | jq -r "$2"
@@ -75,11 +76,6 @@ DBI() {
     cp "$TMP_DIR/translation.bin" "$BUILD_DIR/switch/DBI/translation.bin"
 }
 
-HekateToolbox() {
-    fetch_asset WerWolv/Hekate-Toolbox '.assets[0].browser_download_url'
-    cp "$TMP_DIR"/HekateToolbox.nro "$BUILD_DIR/switch/"
-}
-
 Sphaira() {
     fetch_asset ITotalJustice/sphaira '.assets[0].browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sphaira.zip -d "$BUILD_DIR"
@@ -88,7 +84,7 @@ Sphaira() {
 
 ThemezerNX() {
     fetch_asset suchmememanyskill/themezer-nx '.assets[0].browser_download_url'
-    cp "$TMP_DIR"/themezer-nx.nro "$BUILD_DIR/$HOMEBREW_DIR/"
+    cp "$TMP_DIR"/themezer-nx.nro "$BUILD_DIR/switch/ThemezerNX/themezer-nx.nro"
 }
 
 Appstore() {
@@ -157,7 +153,6 @@ Sphaira
 ThemezerNX
 SaltyNX
 DBI
-HekateToolbox
 
 # Overlays
 Edizon
