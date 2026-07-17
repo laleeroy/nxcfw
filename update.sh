@@ -8,7 +8,7 @@ BUILD_DIR="${1:-./}"
 HOMEBREW_DIR="switch"
 OVERLAY_DIR="switch/.overlays"
 
-UNZIP_COMMAND="unzip -o"
+UNZIP_COMMAND=(unzip -o)
 
 trap 'rm -rf "$TMP_DIR"' EXIT
 
@@ -30,13 +30,13 @@ fetch_asset() {
 
 8BU() {
     fetch_asset laleeroy/nxlinks '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/8bit-updater.zip -d "$BUILD_DIR/switch/8bit-updater"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/8bit-updater.zip -d "$BUILD_DIR/switch/8bit-updater"
     touch "$BUILD_DIR/switch/8bit-updater/.8bit-updater.nro.star"
 }
 
 HBMenu() {
     fetch_asset switchbrew/nx-hbmenu '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/nx-hbmenu_*.zip -d "$BUILD_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/nx-hbmenu_*.zip -d "$BUILD_DIR"
 }
 
 HBLoader() {
@@ -46,20 +46,20 @@ HBLoader() {
 
 Hekate() {
     fetch_asset CTCaer/hekate '.assets[] | select(.name | test("Nyx.*\\.zip")) | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/hekate*.zip -d "$BUILD_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/hekate*.zip -d "$BUILD_DIR"
     cp "$BUILD_DIR"/hekate*.bin "$BUILD_DIR/atmosphere/reboot_payload.bin"
     mv "$BUILD_DIR"/hekate*.bin "$BUILD_DIR/payload.bin"
 }
 
 Lockpick_RCM_Pro() {
     fetch_asset sthetix/Lockpick_RCM_Pro '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/Lockpick_RCM_Pro*.zip -d "$BUILD_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Lockpick_RCM_Pro*.zip -d "$BUILD_DIR"
     mv "$BUILD_DIR/bootloader/payloads/Lockpick_RCM"*.bin "$BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin"
 }
 
 SaltyNX() {
     fetch_asset masagrator/SaltyNX '.assets[] | select(.name=="SaltyNX.zip") | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/SaltyNX.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/SaltyNX.zip -d "$BUILD_DIR/"
 }
 
 DBI() {
@@ -82,7 +82,7 @@ HekateToolbox() {
 
 Sphaira() {
     fetch_asset ITotalJustice/sphaira '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/sphaira.zip -d "$BUILD_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sphaira.zip -d "$BUILD_DIR"
     cp "$BUILD_DIR/switch/sphaira/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
 
@@ -98,12 +98,12 @@ Appstore() {
 
 Sys-Patch() {
     fetch_asset borntohonk/sys-patch '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/sys-patch*.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sys-patch*.zip -d "$BUILD_DIR/"
 }
 
 Edizon() {
     fetch_asset proferabg/Edizon-Overlay '.assets[] | select(.name == "EdiZon-Overlay.zip") | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/EdiZon-Overlay.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/EdiZon-Overlay.zip -d "$BUILD_DIR/"
 }
 
 FPSLocker() {
@@ -123,28 +123,28 @@ SysModules() {
 
 Sys-Clk() {
     fetch_asset retronx-team/sys-clk '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/sys-clk*.zip -x README.md -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sys-clk*.zip -x README.md -d "$BUILD_DIR/"
 }
 
 Emuiibo() {
     fetch_asset XorTroll/emuiibo '.assets[] | select(.name == "emuiibo.zip") | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/emuiibo.zip -d "$TMP_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/emuiibo.zip -d "$TMP_DIR"
     cp -r "$TMP_DIR/SdOut/"* "$BUILD_DIR"
 }
 
 StatusMonitor() {
     fetch_asset masagrator/Status-Monitor-Overlay '.assets[] | select(.name == "Status-Monitor-Overlay.zip") | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/Status-Monitor-Overlay.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Status-Monitor-Overlay.zip -d "$BUILD_DIR/"
 }
 
 Ultrahand() {
     fetch_asset ppkantorski/Ultrahand-Overlay '.assets[] | select(.name == "sdout.zip") | .browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/sdout.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sdout.zip -d "$BUILD_DIR/"
 }
 
 MissionControl() {
     fetch_asset ndeadly/MissionControl '.assets[0].browser_download_url'
-    "$UNZIP_COMMAND" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
 }
 
 # Bootloaders
