@@ -31,6 +31,8 @@ jobs:
           python3 switch-logo-patcher/gen_patches.py configs/atmosphere/exefs_patches/bl_patches configs/logo/8bg.png
 
       - name: Compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd configs
           bash update.sh

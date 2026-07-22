@@ -17,8 +17,14 @@ mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
 mkdir -p "$BUILD_DIR/switch/ThemezerNX"
 
+api_curl() {
+    local auth=()
+    [[ -n "${GITHUB_TOKEN:-}" ]] && auth=(-H "Authorization: Bearer $GITHUB_TOKEN")
+    curl -s "${auth[@]}" "$@"
+}
+
 get_asset_url() {
-    curl -s "https://api.github.com/repos/$1/releases/latest" | jq -r "$2"
+    api_curl "https://api.github.com/repos/$1/releases/latest" | jq -r "$2"
 }
 
 download() {
@@ -65,7 +71,7 @@ SaltyNX() {
 
 DBI() {
     local data
-    data=$(curl -s https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
+    data=$(api_curl https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
 
     download "$(echo "$data" | jq -r '.assets[] | select(.name == "DBI.nro") | .browser_download_url')"
     download "$(echo "$data" | jq -r '.assets[] | select(.name == "translation_en.bin") | .browser_download_url')"
