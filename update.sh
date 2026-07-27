@@ -16,6 +16,7 @@ mkdir -p "$TMP_DIR"
 mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
 mkdir -p "$BUILD_DIR/switch/ThemezerNX"
+mkdir -p "$BUILD_DIR/switch/Switch_themes_installer"
 
 TOOLS=()
 
@@ -95,6 +96,11 @@ Sphaira() {
 ThemezerNX() {
     fetch_asset suchmememanyskill/themezer-nx '.assets[0].browser_download_url'
     cp "$TMP_DIR"/themezer-nx.nro "$BUILD_DIR/switch/ThemezerNX/themezer-nx.nro"
+}
+
+ThemeInjector() {
+    fetch_asset exelix11/SwitchThemeInjector '.assets[] | select(.name == "NXThemesInstaller.nro") | .browser_download_url'
+    cp "$TMP_DIR"/NXThemesInstaller.nro "$BUILD_DIR/switch/Switch_themes_installer/NXThemesInstaller.nro"
 }
 
 Appstore() {
@@ -191,6 +197,7 @@ Lockpick_RCM_Pro
 # Homebrews
 HBLoader
 Sphaira
+ThemeInjector
 ThemezerNX
 SaltyNX
 DBI
