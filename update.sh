@@ -17,6 +17,8 @@ mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
 mkdir -p "$BUILD_DIR/switch/ThemezerNX"
 
+TOOLS=()
+
 api_curl() {
     local auth=()
     [[ -n "${GITHUB_TOKEN:-}" ]] && auth=(-H "Authorization: Bearer $GITHUB_TOKEN")
@@ -33,6 +35,7 @@ download() {
 
 fetch_asset() {
     download "$(get_asset_url "$@")"
+    TOOLS+=("$1")
 }
 
 8BU() {
@@ -70,6 +73,7 @@ SaltyNX() {
 }
 
 DBI() {
+    TOOLS+=("rashevskyv/DBIPatcher")
     local data
     data=$(api_curl https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest)
 
@@ -104,7 +108,7 @@ Sys-Patch() {
 }
 
 Edizon() {
-    fetch_asset proferabg/Edizon-Overlay '.assets[] | select(.name == "EdiZon-Overlay.zip") | .browser_download_url'
+    fetch_asset proferabg/EdiZon-Overlay '.assets[] | select(.name == "EdiZon-Overlay.zip") | .browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/EdiZon-Overlay.zip -d "$BUILD_DIR/"
 }
 
@@ -149,6 +153,37 @@ MissionControl() {
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
 }
 
+finalize() {
+    echo "finalize: ${#TOOLS[@]} tools registered: ${TOOLS[*]}"
+
+    mkdir -p "$BUILD_DIR/switch/appstore/.get/packages"
+
+    echo "finalize: fetching repo.json..."
+    if ! api_curl "https://switch.cdn.fortheusers.org/repo.json" > "$TMP_DIR/repo.json"; then
+        echo "finalize: failed to fetch repo.json" >&2
+        return
+    fi
+    echo "finalize: repo.json size=$(wc -c < "$TMP_DIR/repo.json")"
+
+    local count=0
+    for tool in "${TOOLS[@]}"; do
+        local pkg
+        pkg=$(jq --arg repo "$tool" '.packages[] | select(.url | test("github\\.com/" + $repo + "($|/)"))' "$TMP_DIR/repo.json")
+        if [[ -n "$pkg" ]]; then
+            local name
+            name=$(echo "$pkg" | jq -r '.name')
+            echo "finalize: matched $tool → $name"
+            local dir="$BUILD_DIR/switch/appstore/.get/packages/$name"
+            mkdir -p "$dir"
+            echo "$pkg" | jq '{name, title, description, author, version, license, url, category, details}' > "$dir/info.json"
+            ((count++))
+        else
+            echo "finalize: no match for $tool"
+        fi
+    done
+    echo "finalize: created $count info.json files"
+}
+
 # Bootloaders
 Hekate
 Lockpick_RCM_Pro
@@ -171,3 +206,5 @@ Emuiibo
 StatusMonitor
 Ultrahand
 MissionControl
+
+finalize
