@@ -182,7 +182,7 @@ finalize() {
             local dir="$BUILD_DIR/switch/appstore/.get/packages/$name"
             mkdir -p "$dir"
             echo "$pkg" | jq '{title, description, author, version, license, url, category, details, changelog}' > "$dir/info.json"
-            ((count++))
+            ((++count))
         else
             echo "finalize: no match for $tool"
         fi
