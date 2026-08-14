@@ -88,7 +88,7 @@ DBI() {
 }
 
 Sphaira() {
-    fetch_asset ITotalJustice/sphaira '.assets[0].browser_download_url'
+    fetch_asset NaGaa95/sphaira '.assets[0].browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sphaira.zip -d "$BUILD_DIR"
     cp "$BUILD_DIR/switch/sphaira/sphaira.nro" "$BUILD_DIR/hbmenu.nro"
 }
