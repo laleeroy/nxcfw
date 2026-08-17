@@ -68,6 +68,11 @@ Lockpick_RCM_Pro() {
     mv "$BUILD_DIR/bootloader/payloads/Lockpick_RCM"*.bin "$BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin"
 }
 
+Warmboot_Extractor() {
+    fetch_asset sthetix/Warmboot-Extractor '.assets[0].browser_download_url'
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Warmboot-Extractor-*.zip -d "$BUILD_DIR"
+}
+
 SaltyNX() {
     fetch_asset masagrator/SaltyNX '.assets[] | select(.name=="SaltyNX.zip") | .browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/SaltyNX.zip -d "$BUILD_DIR/"
@@ -193,6 +198,7 @@ finalize() {
 # Bootloaders
 Hekate
 Lockpick_RCM_Pro
+Warmboot_Extractor
 
 # Homebrews
 HBLoader
