@@ -139,8 +139,10 @@ SysModules() {
 }
 
 Sys-Clk() {
-    fetch_asset retronx-team/sys-clk '.assets[0].browser_download_url'
-    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sys-clk*.zip -x README.md -d "$BUILD_DIR/"
+    fetch_asset ppkantorski/Horizon-OC '.assets[] | select(.name == "sys-clk-hoc.zip") | .browser_download_url'
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sys-clk-hoc.zip -d "$BUILD_DIR/"
+    fetch_asset ppkantorski/sys-clk '.assets[] | select(.name == "sys-clk-overlay.ovl") | .browser_download_url'
+    cp "$TMP_DIR"/sys-clk-overlay.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 Emuiibo() {
@@ -150,8 +152,8 @@ Emuiibo() {
 }
 
 StatusMonitor() {
-    fetch_asset masagrator/Status-Monitor-Overlay '.assets[] | select(.name == "Status-Monitor-Overlay.zip") | .browser_download_url'
-    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Status-Monitor-Overlay.zip -d "$BUILD_DIR/"
+    fetch_asset ppkantorski/Status-Monitor-Overlay '.assets[] | select(.name == "Status-Monitor-Overlay.ovl") | .browser_download_url'
+    cp "$TMP_DIR"/Status-Monitor-Overlay.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 Ultrahand() {
