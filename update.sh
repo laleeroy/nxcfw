@@ -161,6 +161,11 @@ Ultrahand() {
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/sdout.zip -d "$BUILD_DIR/"
 }
 
+NXFanControl() {
+    fetch_asset ppkantorski/NX-FanControl '.assets[] | select(.name == "NX-FanControl.ovl") | .browser_download_url'
+    cp "$TMP_DIR"/NX-FanControl.ovl "$BUILD_DIR/$OVERLAY_DIR/"
+}
+
 MissionControl() {
     fetch_asset ndeadly/MissionControl '.assets[0].browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
@@ -220,6 +225,7 @@ Sys-Patch
 Emuiibo
 StatusMonitor
 Ultrahand
+NXFanControl
 MissionControl
 
 finalize
