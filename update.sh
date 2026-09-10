@@ -124,12 +124,12 @@ Edizon() {
 }
 
 FPSLocker() {
-    fetch_asset masagrator/FPSLocker '.assets[] | select(.name == "FPSLocker.ovl") | .browser_download_url'
+    fetch_asset ppkantorski/FPSLocker '.assets[] | select(.name == "FPSLocker.ovl") | .browser_download_url'
     cp "$TMP_DIR"/FPSLocker.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
 ReverseNX() {
-    fetch_asset masagrator/ReverseNX-RT '.assets[0].browser_download_url'
+    fetch_asset ppkantorski/ReverseNX-RT '.assets[0].browser_download_url'
     cp "$TMP_DIR"/ReverseNX-RT-ovl.ovl "$BUILD_DIR/$OVERLAY_DIR/"
 }
 
