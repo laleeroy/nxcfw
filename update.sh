@@ -70,7 +70,7 @@ Lockpick_RCM_Pro() {
 
 Warmboot_Extractor() {
     fetch_asset sthetix/Warmboot-Extractor '.assets[0].browser_download_url'
-    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Warmboot-Extractor-*.zip -d "$BUILD_DIR"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Warmboot_Extractor-*.zip -d "$BUILD_DIR"
 }
 
 SaltyNX() {
