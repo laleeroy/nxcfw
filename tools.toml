@@ -69,6 +69,13 @@ post = [
   [[tool.asset]]
   match = "KitNX*.zip"
 
+[[tool]]
+name = "modchip-toolbox"
+repo = "DefenderOfHyrule/modchip-toolbox"
+  [[tool.asset]]
+  match = "modchip_toolbox.bin"
+  dest = "bootloader/payloads"
+
 # ---------- Homebrew ----------
 
 [[tool]]
