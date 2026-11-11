@@ -23,7 +23,7 @@
 #
 # NOTE: `post` must come BEFORE the [[tool.asset]] blocks of the same tool.
 
-# ---------- Bootloaders ----------
+# ---------- Payloads ----------
 
 [[tool]]
 name = "hekate"
