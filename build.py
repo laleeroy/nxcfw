@@ -255,6 +255,28 @@ def finalize(repos, build, dry):
     log(f"finalize: wrote {made} info.json files")
 
 
+# ----------------------------------------------------------------- configs
+
+IGNORED = {".DS_Store", ".gitkeep"}
+
+
+def apply_configs(src, build, dry):
+    """Last stage: copy the user's configs/ tree over the build, overwriting."""
+    if not src.is_dir():
+        log(f"\nconfigs: {src} not found, skipping")
+        return
+    files = [p for p in sorted(src.rglob("*")) if p.is_file() and p.name not in IGNORED]
+    log(f"\nconfigs: {len(files)} files from {src}")
+    for p in files:
+        rel = p.relative_to(src)
+        target = build / rel
+        note = " (overwrites)" if target.exists() else ""
+        log(f"  {rel}{note}")
+        if not dry:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(p, target)
+
+
 # -------------------------------------------------------------------- main
 
 def load_manifest(path):
@@ -291,6 +313,9 @@ def main():
                     help="ignore the cache: re-fetch release info and re-download files")
     ap.add_argument("--cache-ttl", type=int, default=600, metavar="SEC",
                     help="how long cached release info stays fresh (default: 600)")
+    ap.add_argument("--configs", default=str(here / "configs"), metavar="DIR",
+                    help="folder copied over the build as the last step (default: ./configs)")
+    ap.add_argument("--no-configs", action="store_true", help="skip the configs step")
     ap.add_argument("--cache-dir", default=str(here / ".cache"))
     ap.add_argument("--fail-fast", action="store_true", help="stop at first failing tool")
     ap.add_argument("--zip", metavar="FILE", help="zip the result to FILE")
@@ -338,6 +363,9 @@ def main():
                 break
 
     finalize([t["repo"] for t in ok if t.get("repo")], build, args.dry_run)
+
+    if not args.no_configs:
+        apply_configs(Path(args.configs), build, args.dry_run)
 
     if args.zip and not args.dry_run:
         out = Path(args.zip)
