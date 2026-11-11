@@ -32,6 +32,7 @@ APPSTORE_KEYS = ["title", "description", "author", "version", "license",
                  "url", "category", "details", "changelog"]
 
 _releases = {}  # in-memory cache: repo -> release json
+_token = {"value": None}  # GitHub token, set in main()
 _disk = {"dir": None, "ttl": 0}  # on-disk release cache, set in main()
 
 
@@ -47,9 +48,9 @@ def log(msg=""):
 
 def http_open(url, api=False):
     headers = {"User-Agent": "sdcard-builder"}
-    token = os.environ.get("GITHUB_TOKEN")
-    if api and token:
-        headers["Authorization"] = f"Bearer {token}"
+    # only ever send the token to GitHub's API, never to other hosts
+    if _token["value"] and url.startswith(API + "/"):
+        headers["Authorization"] = f"Bearer {_token['value']}"
     try:
         return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60)
     except urllib.error.HTTPError as e:
@@ -259,6 +260,9 @@ def main():
     here = Path(__file__).resolve().parent
     ap = argparse.ArgumentParser(description="Build the SD card from tools.toml")
     ap.add_argument("build_dir", nargs="?", default="sdcard", help="output dir (default: sdcard)")
+    ap.add_argument("--token", metavar="TOKEN",
+                    help="GitHub token (or set GITHUB_TOKEN / GH_TOKEN; env is safer, "
+                         "a flag shows up in shell history)")
     ap.add_argument("--manifest", default=str(here / "tools.toml"))
     ap.add_argument("--only", action="append", metavar="A,B", help="run only these tools")
     ap.add_argument("--skip", action="append", metavar="A,B", help="skip these tools")
@@ -275,6 +279,9 @@ def main():
     ap.add_argument("--list", action="store_true", help="list tools and exit")
     args = ap.parse_args()
 
+    _token["value"] = args.token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    log("auth: GitHub token (5000 req/h)" if _token["value"]
+        else "auth: none (60 req/h; set GITHUB_TOKEN to raise)")
     tools = load_manifest(args.manifest)
     if args.list:
         for t in tools:
