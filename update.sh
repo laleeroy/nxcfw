@@ -17,6 +17,7 @@ mkdir -p "$BUILD_DIR/$OVERLAY_DIR"
 mkdir -p "$BUILD_DIR/$HOMEBREW_DIR/DBI"
 mkdir -p "$BUILD_DIR/switch/ThemezerNX"
 mkdir -p "$BUILD_DIR/switch/Switch_themes_installer"
+mkdir -p "$BUILD_DIR/themes"
 
 TOOLS=()
 
@@ -167,6 +168,16 @@ MissionControl() {
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/MissionControl*.zip -d "$BUILD_DIR/"
 }
 
+ThemePatches() {
+    local repo="exelix11/theme-patches"
+    TOOLS+=("$repo")
+    curl -L -o "$TMP_DIR/theme-patches.zip" \
+        "https://github.com/$repo/archive/refs/heads/master.zip"
+    "${UNZIP_COMMAND[@]}" "$TMP_DIR/theme-patches.zip" \
+        "theme-patches-master/systemPatches/*" -d "$TMP_DIR"
+    cp -r "$TMP_DIR/theme-patches-master/systemPatches/." "$BUILD_DIR/themes/"
+}
+
 finalize() {
     echo "finalize: ${#TOOLS[@]} tools registered: ${TOOLS[*]}"
 
@@ -222,5 +233,8 @@ Emuiibo
 StatusMonitor
 Ultrahand
 MissionControl
+
+# Patches
+ThemePatches
 
 finalize
