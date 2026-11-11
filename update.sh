@@ -99,7 +99,7 @@ Sphaira() {
 }
 
 ThemezerNX() {
-    fetch_asset suchmememanyskill/themezer-nx '.assets[0].browser_download_url'
+    fetch_asset ThemezerNX/Themezer-NX '.assets[0].browser_download_url'
     cp "$TMP_DIR"/themezer-nx.nro "$BUILD_DIR/switch/ThemezerNX/themezer-nx.nro"
 }
 
