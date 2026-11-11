@@ -65,7 +65,8 @@ Hekate() {
 Lockpick_RCM_Pro() {
     fetch_asset sthetix/Lockpick_RCM_Pro '.assets[0].browser_download_url'
     "${UNZIP_COMMAND[@]}" "$TMP_DIR"/Lockpick_RCM_Pro*.zip -d "$BUILD_DIR"
-    mv "$BUILD_DIR/bootloader/payloads/Lockpick_RCM"*.bin "$BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin"
+    mv "$BUILD_DIR/bootloader/payloads/Lockpick_RCM_Pro.bin" \
+       "$BUILD_DIR/bootloader/payloads/Lockpick_RCM.bin"
 }
 
 Warmboot_Extractor() {
