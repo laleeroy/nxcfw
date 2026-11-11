@@ -1,0 +1,188 @@
+# SD card manifest. Adding a tool = adding one [[tool]] block. No code changes.
+#
+# [[tool]] keys
+#   name      label used by --only / --skip
+#   repo      GitHub "owner/repo" (also used for appstore info.json in finalize)
+#   enabled   false = skipped unless named with --only (default true)
+#   post      small steps run after the assets are installed, paths relative
+#             to the build dir:
+#               ["cp", "src_glob", "dst"]   src_glob must match exactly ONE file
+#               ["mv", "src_glob", "dst"]   (no more "Not a directory" surprises)
+#               ["touch", "path"]
+#
+# [[tool.asset]] keys (a tool can have several)
+#   match     glob on the release asset name. Omit = first asset of the release
+#   url       direct URL instead of repo release (e.g. branch archives)
+#   dest      folder under the build dir (default ".")
+#   rename    final filename for single-file assets
+#   from      zip only: extract just this folder inside the zip, stripped.
+#             Glob allowed per path part, e.g. "*/systemPatches"
+#   mode      "unzip" | "copy" (default: unzip if name ends in .zip, else copy)
+#
+# NOTE: `post` must come BEFORE the [[tool.asset]] blocks of the same tool.
+
+# ---------- Bootloaders ----------
+
+[[tool]]
+name = "hekate"
+repo = "CTCaer/hekate"
+post = [
+  ["cp", "hekate*.bin", "atmosphere/reboot_payload.bin"],
+  ["mv", "hekate*.bin", "payload.bin"],
+]
+  [[tool.asset]]
+  match = "*Nyx*.zip"
+
+[[tool]]
+name = "Lockpick_RCM_Pro"
+repo = "sthetix/Lockpick_RCM_Pro"
+post = [
+  ["mv", "bootloader/payloads/Lockpick_RCM_Pro.bin", "bootloader/payloads/Lockpick_RCM.bin"],
+]
+  [[tool.asset]]
+  match = "Lockpick_RCM_Pro*.zip"
+
+[[tool]]
+name = "Warmboot-Extractor"
+repo = "sthetix/Warmboot-Extractor"
+  [[tool.asset]]
+  match = "Warmboot_Extractor-*.zip"
+
+# ---------- Homebrew ----------
+
+[[tool]]
+name = "nx-hbloader"
+repo = "switchbrew/nx-hbloader"
+  [[tool.asset]]
+  match = "hbl.nsp"
+  dest = "atmosphere"
+
+[[tool]]
+name = "sphaira"
+repo = "NaGaa95/sphaira"
+post = [
+  ["cp", "switch/sphaira/sphaira.nro", "hbmenu.nro"],
+]
+  [[tool.asset]]
+  match = "sphaira.zip"
+
+[[tool]]
+name = "SwitchThemeInjector"
+repo = "exelix11/SwitchThemeInjector"
+  [[tool.asset]]
+  match = "NXThemesInstaller.nro"
+  dest = "switch/Switch_themes_installer"
+
+[[tool]]
+name = "Themezer-NX"
+repo = "ThemezerNX/Themezer-NX"
+  [[tool.asset]]
+  match = "themezer-nx.nro"
+  dest = "switch/ThemezerNX"
+
+[[tool]]
+name = "SaltyNX"
+repo = "masagrator/SaltyNX"
+  [[tool.asset]]
+  match = "SaltyNX.zip"
+
+[[tool]]
+name = "DBIPatcher"
+repo = "rashevskyv/DBIPatcher"
+  [[tool.asset]]
+  match = "DBI.nro"
+  dest = "switch/DBI"
+  [[tool.asset]]
+  match = "translation_en.bin"
+  dest = "switch/DBI"
+  rename = "translation.bin"
+
+# ---------- Overlays ----------
+
+[[tool]]
+name = "EdiZon-Overlay"
+repo = "proferabg/EdiZon-Overlay"
+  [[tool.asset]]
+  match = "EdiZon-Overlay.zip"
+
+[[tool]]
+name = "FPSLocker"
+repo = "ppkantorski/FPSLocker"
+  [[tool.asset]]
+  match = "FPSLocker.ovl"
+  dest = "switch/.overlays"
+
+[[tool]]
+name = "ReverseNX-RT"
+repo = "ppkantorski/ReverseNX-RT"
+  [[tool.asset]]
+  match = "ReverseNX-RT-ovl.ovl"
+  dest = "switch/.overlays"
+
+[[tool]]
+name = "ovl-sysmodules"
+repo = "ppkantorski/ovl-sysmodules"
+  [[tool.asset]]
+  match = "ovlSysmodules.ovl"
+  dest = "switch/.overlays"
+
+[[tool]]
+name = "Horizon-OC"
+repo = "ppkantorski/Horizon-OC"
+  [[tool.asset]]
+  match = "sys-clk-hoc.zip"
+
+[[tool]]
+name = "sys-clk"
+repo = "ppkantorski/sys-clk"
+  [[tool.asset]]
+  match = "sys-clk-overlay.ovl"
+  dest = "switch/.overlays"
+
+[[tool]]
+name = "sys-patch"
+repo = "impeeza/sys-patch"
+  [[tool.asset]]
+  match = "sys-patch*.zip"
+
+[[tool]]
+name = "emuiibo"
+repo = "XorTroll/emuiibo"
+  [[tool.asset]]
+  match = "emuiibo.zip"
+  from = "SdOut"
+
+[[tool]]
+name = "Status-Monitor-Overlay"
+repo = "ppkantorski/Status-Monitor-Overlay"
+  [[tool.asset]]
+  match = "Status-Monitor-Overlay.ovl"
+  dest = "switch/.overlays"
+
+[[tool]]
+name = "Ultrahand-Overlay"
+repo = "ppkantorski/Ultrahand-Overlay"
+  [[tool.asset]]
+  match = "sdout.zip"
+
+[[tool]]
+name = "MissionControl"
+repo = "ndeadly/MissionControl"
+  [[tool.asset]]
+  match = "MissionControl*.zip"
+
+# ---------- Misc ----------
+
+[[tool]]
+name = "theme-patches"
+  [[tool.asset]]
+  url = "https://github.com/exelix11/theme-patches/archive/refs/heads/master.zip"
+  from = "*/systemPatches"
+  dest = "themes"
+
+[[tool]]
+name = "UltraNX"
+  [[tool.asset]]
+  url = "https://github.com/Ultra-NX/UltraNX/archive/refs/heads/main.zip"
+  from = "*/warmboot_mariko"
+  dest = "warmboot_mariko"
