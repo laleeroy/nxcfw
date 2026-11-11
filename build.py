@@ -163,12 +163,16 @@ def install(asset, file, build):
         raise BuildError(f"unknown mode '{mode}'")
 
 
+def matches(build, pattern):
+    return sorted(Path(h) for h in glob.glob(glob.escape(str(build)) + "/" + pattern))
+
+
 def one_match(build, pattern):
-    hits = sorted(glob.glob(glob.escape(str(build)) + "/" + pattern))
+    hits = matches(build, pattern)
     if len(hits) != 1:
-        found = [os.path.relpath(h, build) for h in hits] or "nothing"
-        raise BuildError(f"post: '{pattern}' must match exactly 1 file, found {found}")
-    return Path(hits[0])
+        found = [str(h.relative_to(build)) for h in hits] or "nothing"
+        raise BuildError(f"post: '{pattern}' must match exactly 1 path, found {found}")
+    return hits[0]
 
 
 def run_post(ops, build):
@@ -181,7 +185,21 @@ def run_post(ops, build):
         elif kind in ("cp", "mv"):
             src, dst = one_match(build, args[0]), build / args[1]
             dst.parent.mkdir(parents=True, exist_ok=True)
-            (shutil.copy2 if kind == "cp" else shutil.move)(src, dst)
+            if src.is_dir():
+                # folders merge into an existing destination instead of nesting inside it
+                shutil.copytree(src, dst, dirs_exist_ok=True)
+                if kind == "mv":
+                    shutil.rmtree(src)
+            elif kind == "cp":
+                shutil.copy2(src, dst)
+            else:
+                shutil.move(str(src), str(dst))
+        elif kind == "rm":
+            hits = matches(build, args[0])
+            if not hits:
+                raise BuildError(f"post: rm '{args[0]}' matched nothing")
+            for h in hits:
+                shutil.rmtree(h) if h.is_dir() else h.unlink()
         else:
             raise BuildError(f"unknown post op '{kind}'")
 

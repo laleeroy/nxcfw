@@ -9,6 +9,8 @@
 #               ["cp", "src_glob", "dst"]   src_glob must match exactly ONE file
 #               ["mv", "src_glob", "dst"]   (no more "Not a directory" surprises)
 #               ["touch", "path"]
+#               ["rm", "glob"]              delete file(s)/folder(s); must match something
+#             cp/mv also work on folders (merged into dst if it already exists)
 #
 # [[tool.asset]] keys (a tool can have several)
 #   match     glob on the release asset name. Omit = first asset of the release
@@ -170,6 +172,17 @@ name = "MissionControl"
 repo = "ndeadly/MissionControl"
   [[tool.asset]]
   match = "MissionControl*.zip"
+
+[[tool]]
+name = "BootSoundNX"
+repo = "KranKRival/BootSoundNX"
+post = [
+  ["mv", "atmosphere/titles", "atmosphere/contents"],
+  ["rm", "config/BootSoundNX/sound/bootsound.mp3"],
+]
+  [[tool.asset]]
+  match = "BootSoundNX.zip"
+  from = "BootSoundNX"
 
 # ---------- Misc ----------
 
