@@ -6,6 +6,7 @@ them into a build directory. Needs Python 3.11+, no third-party packages.
 
 Examples:
   ./build.py                         # build everything into ./sdcard
+  ./build.py --jobs 8                # download 8 tools at a time (default: 1)
   ./build.py --dry-run               # resolve every asset, write nothing
   ./build.py --only hekate,DBIPatcher       # iterate on a subset
   ./build.py --clean --zip out/sd.zip
@@ -19,11 +20,13 @@ import os
 import re
 import shutil
 import sys
+import threading
 import time
 import tomllib
 import urllib.error
 import urllib.request
 import zipfile
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path, PurePosixPath
 
 API = "https://api.github.com"
@@ -40,8 +43,16 @@ class BuildError(Exception):
     pass
 
 
+_tls = threading.local()
+
+
 def log(msg=""):
-    print(msg, flush=True)
+    # inside a fetch worker, buffer lines so parallel tools don't interleave output
+    buf = getattr(_tls, "buf", None)
+    if buf is not None:
+        buf.append(msg)
+    else:
+        print(msg, flush=True)
 
 
 # ----------------------------------------------------------------- network
@@ -204,21 +215,37 @@ def run_post(ops, build):
             raise BuildError(f"unknown post op '{kind}'")
 
 
-def process(tool, args, build, cache_dir):
-    repo = tool.get("repo")
-    for a in tool["asset"]:
-        if "url" in a:
-            url = a["url"]
-            fname, cacheable = a.get("name") or url.rstrip("/").split("/")[-1], False
-        else:
-            if not repo:
-                raise BuildError("asset has no 'url' and tool has no 'repo'")
-            gh = resolve_asset(repo, a.get("match"))
-            url, fname, cacheable = gh["browser_download_url"], gh["name"], not args.no_cache
-        log(f"  {fname} -> {a.get('dest', '.')}"
-            + (f"  (rename {a['rename']})" if "rename" in a else ""))
-        if not args.dry_run:
-            install(a, download(url, fname, cache_dir, cacheable), build)
+def fetch_tool(tool, args, cache_dir):
+    """Network half: resolve + download every asset. Safe to run in parallel.
+    Returns (items, buffered log lines, error or None)."""
+    _tls.buf = []
+    items, err = [], None
+    try:
+        repo = tool.get("repo")
+        for a in tool["asset"]:
+            if "url" in a:
+                url = a["url"]
+                fname, cacheable = a.get("name") or url.rstrip("/").split("/")[-1], False
+            else:
+                if not repo:
+                    raise BuildError("asset has no 'url' and tool has no 'repo'")
+                gh = resolve_asset(repo, a.get("match"))
+                url, fname, cacheable = gh["browser_download_url"], gh["name"], not args.no_cache
+            log(f"  {fname} -> {a.get('dest', '.')}"
+                + (f"  (rename {a['rename']})" if "rename" in a else ""))
+            items.append((a, None if args.dry_run else download(url, fname, cache_dir, cacheable)))
+    except (BuildError, OSError) as e:
+        err = e
+    finally:
+        lines, _tls.buf = _tls.buf, None
+    return items, lines, err
+
+
+def install_tool(tool, items, args, build):
+    """Disk half: always sequential, in manifest order (later tools overwrite earlier)."""
+    if not args.dry_run:
+        for a, file in items:
+            install(a, file, build)
     for op in tool.get("post", []):
         log(f"  post: {' '.join(op)}")
     if not args.dry_run:
@@ -316,11 +343,15 @@ def main():
     ap.add_argument("--configs", default=str(here / "configs"), metavar="DIR",
                     help="folder copied over the build as the last step (default: ./configs)")
     ap.add_argument("--no-configs", action="store_true", help="skip the configs step")
+    ap.add_argument("-j", "--jobs", type=int, default=1, metavar="N",
+                    help="download N tools in parallel (default: 1 = one at a time)")
     ap.add_argument("--cache-dir", default=str(here / ".cache"))
     ap.add_argument("--fail-fast", action="store_true", help="stop at first failing tool")
     ap.add_argument("--zip", metavar="FILE", help="zip the result to FILE")
     ap.add_argument("--list", action="store_true", help="list tools and exit")
     args = ap.parse_args()
+    if args.jobs < 1:
+        ap.error("--jobs must be >= 1")
 
     _token["value"] = args.token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
     log("auth: GitHub token (5000 req/h)" if _token["value"]
@@ -351,16 +382,30 @@ def main():
         build.mkdir(parents=True, exist_ok=True)
 
     ok, failed = [], []
-    for t in selected:
-        log(f"[{t['name']}]")
-        try:
-            process(t, args, build, cache_dir)
-            ok.append(t)
-        except (BuildError, zipfile.BadZipFile, OSError) as e:
-            log(f"  FAILED: {e}")
-            failed.append(t["name"])
-            if args.fail_fast:
-                break
+    pool = futures = None
+    if args.jobs > 1:  # start every tool's network work up front; install stays in order
+        pool = ThreadPoolExecutor(max_workers=args.jobs)
+        futures = {t["name"]: pool.submit(fetch_tool, t, args, cache_dir) for t in selected}
+    try:
+        for t in selected:
+            log(f"[{t['name']}]")
+            items, lines, err = (futures[t["name"]].result() if futures
+                                 else fetch_tool(t, args, cache_dir))
+            for line in lines:
+                log(line)
+            try:
+                if err:
+                    raise err
+                install_tool(t, items, args, build)
+                ok.append(t)
+            except (BuildError, zipfile.BadZipFile, OSError) as e:
+                log(f"  FAILED: {e}")
+                failed.append(t["name"])
+                if args.fail_fast:
+                    break
+    finally:
+        if pool:
+            pool.shutdown(wait=False, cancel_futures=True)
 
     finalize([t["repo"] for t in ok if t.get("repo")], build, args.dry_run)
 
