@@ -1,0 +1,51 @@
+name: Compile
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # This repo: build.py, tools.toml, configs/, logo/
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Checkout switch-logo-patcher
+        uses: actions/checkout@v4
+        with:
+          repository: friedkeenan/switch-logo-patcher
+          path: switch-logo-patcher
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: switch-logo-patcher/requirements.txt
+
+      - name: Install logo patcher dependencies
+        run: pip install -r switch-logo-patcher/requirements.txt
+
+      # Write into configs/ so build.py copies the patches in its final step
+      - name: Generate BL patches
+        run: |
+          mkdir -p configs/atmosphere/exefs_patches/bl_patches
+          python switch-logo-patcher/gen_patches.py \
+            configs/atmosphere/exefs_patches/bl_patches logo/8bg.png
+
+      - name: Compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python build.py
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: 8BP-Unknown
+          path: sdcard/
+          include-hidden-files: true
