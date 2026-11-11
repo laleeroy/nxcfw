@@ -210,6 +210,12 @@ post = [
   match = "BootSoundNX.zip"
   from = "BootSoundNX"
 
+[[tool]]
+name = "NX-AudioControl"
+repo = "Fh1do/NX-AudioControl"
+  [[tool.asset]]
+  match = "NX-AudioControl.zip"
+
 # ---------- Misc ----------
 
 [[tool]]
