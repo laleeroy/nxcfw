@@ -50,6 +50,25 @@ repo = "sthetix/Warmboot-Extractor"
   [[tool.asset]]
   match = "Warmboot_Extractor-*.zip"
 
+[[tool]]
+name = "TegraExplorer-Ext"
+repo = "sthetix/TegraExplorer-Ext"
+post = [
+  ["mv", "bootloader/payloads/TegraExplorer-Ext.bin", "bootloader/payloads/TegraExplorer.bin"],
+  ["rm", "scripts"],
+]
+  [[tool.asset]]
+  match = "TegraExplorer-Ext*.zip"
+
+[[tool]]
+name = "KitNX"
+repo = "sthetix/KitNX"
+post = [
+  ["rm", "config"],
+]
+  [[tool.asset]]
+  match = "KitNX*.zip"
+
 # ---------- Homebrew ----------
 
 [[tool]]
