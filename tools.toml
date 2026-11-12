@@ -78,7 +78,7 @@ post = [
   [[tool.asset]]
   match = "modchip_toolbox.bin"
 
-# ---------- Homebrew ----------
+# ---------- Homebrews ----------
 
 [[tool]]
 name = "nx-hbloader"
