@@ -1,0 +1,644 @@
+{
+  "schema": 1,
+  "built": "2026-11-12T11:18:49Z",
+  "commit": "da07c2415f2a5b77a0e7c0eda1f6495bbeba0601",
+  "tools": {
+    "hekate": {
+      "repo": "CTCaer/hekate",
+      "section": "Payloads",
+      "version": "v6.5.5",
+      "assets": [
+        {
+          "name": "hekate_ctcaer_6.5.5_Nyx_1.9.5.zip",
+          "url": "https://github.com/CTCaer/hekate/releases/download/v6.5.5/hekate_ctcaer_6.5.5_Nyx_1.9.5.zip",
+          "sha256": "e3c6613fc9e099d00683063855812a6059247da6e9d75f2caa203f9e78e5df56",
+          "content": "999a8e2a9ac6090f025f0659bcd25b91f53cfbb57fb4174c15e8613f11113c92"
+        }
+      ]
+    },
+    "Lockpick_RCM_Pro": {
+      "repo": "sthetix/Lockpick_RCM_Pro",
+      "section": "Payloads",
+      "version": "2.2.0",
+      "assets": [
+        {
+          "name": "Lockpick_RCM_Pro-2.2.0.zip",
+          "url": "https://github.com/sthetix/Lockpick_RCM_Pro/releases/download/2.2.0/Lockpick_RCM_Pro-2.2.0.zip",
+          "sha256": "41011c1d018ca359dca6bd52b460cf5e52fb38d574b028958b876967cb13f577",
+          "content": "5e226de29068fd8482b533f185277936a28e8e56a67e06ecedd9c47941d4b75e"
+        }
+      ]
+    },
+    "Warmboot-Extractor": {
+      "repo": "sthetix/Warmboot-Extractor",
+      "section": "Payloads",
+      "version": "1.1.0",
+      "assets": [
+        {
+          "name": "Warmboot_Extractor-1.1.0.zip",
+          "url": "https://github.com/sthetix/Warmboot-Extractor/releases/download/1.1.0/Warmboot_Extractor-1.1.0.zip",
+          "sha256": "14823a1a826b258bf46846dde1c28c638c8799b1d876d28ffac65d8f29dfc4b4",
+          "content": "7cd987b2609e9e5df7d7bcb3f708127d4c5900a3f60b55ee932ff5a3c64e8269"
+        }
+      ]
+    },
+    "TegraExplorer-Ext": {
+      "repo": "sthetix/TegraExplorer-Ext",
+      "section": "Payloads",
+      "version": "v4.2.2",
+      "assets": [
+        {
+          "name": "TegraExplorer-Ext-4.2.2.zip",
+          "url": "https://github.com/sthetix/TegraExplorer-Ext/releases/download/v4.2.2/TegraExplorer-Ext-4.2.2.zip",
+          "sha256": "6bb781d63108af1ef6118e3628b5e5f42121bea8dd78dabe7457fdcb5bdbc565",
+          "content": "b4e8f71d06d8056ff59f511bc7b15f90b4a6f3ae72826ac6742de5d62eb02429"
+        }
+      ]
+    },
+    "KitNX": {
+      "repo": "sthetix/KitNX",
+      "section": "Payloads",
+      "version": "1.0.3",
+      "assets": [
+        {
+          "name": "KitNX-1.0.3.zip",
+          "url": "https://github.com/sthetix/KitNX/releases/download/1.0.3/KitNX-1.0.3.zip",
+          "sha256": "95871ca393b7804b4756ed21cd40448ca2bf06786a0c9097713ef79874e58e42",
+          "content": "2c7ae090a9d3502c3d52d760f0b6c16e27d266a5f62d9e4f646ed7e51a4c263c"
+        }
+      ]
+    },
+    "modchip-toolbox": {
+      "repo": "DefenderOfHyrule/modchip-toolbox",
+      "section": "Payloads",
+      "version": "v1.0.3",
+      "assets": [
+        {
+          "name": "modchip_toolbox.bin",
+          "url": "https://github.com/DefenderOfHyrule/modchip-toolbox/releases/download/v1.0.3/modchip_toolbox.bin",
+          "sha256": "068f82164b60d242f3715c2b0f8b66db2fdaaf9d1c44e64f494401f89610156f",
+          "content": "068f82164b60d242f3715c2b0f8b66db2fdaaf9d1c44e64f494401f89610156f"
+        }
+      ]
+    },
+    "nx-hbloader": {
+      "repo": "switchbrew/nx-hbloader",
+      "section": "Homebrews",
+      "version": "v2.4.5",
+      "assets": [
+        {
+          "name": "hbl.nsp",
+          "url": "https://github.com/switchbrew/nx-hbloader/releases/download/v2.4.5/hbl.nsp",
+          "sha256": "853df8526557b82c6b2018a8a102d22e8306687415e49653530dfd9a1d603b32",
+          "content": "853df8526557b82c6b2018a8a102d22e8306687415e49653530dfd9a1d603b32"
+        }
+      ]
+    },
+    "sphaira": {
+      "repo": "NaGaa95/sphaira",
+      "section": "Homebrews",
+      "version": "1.0.9",
+      "assets": [
+        {
+          "name": "sphaira.zip",
+          "url": "https://github.com/NaGaa95/sphaira/releases/download/1.0.9/sphaira.zip",
+          "sha256": "65455e72389d549e35310fc1f804fb4db9d508f0ee841dc5111173b6505892ec",
+          "content": "6b6e4f5576e4a7a214dbe1b3dd01c8711e8a3c9afb19b536a5f3b8d424809f4a"
+        }
+      ]
+    },
+    "SwitchThemeInjector": {
+      "repo": "exelix11/SwitchThemeInjector",
+      "section": "Homebrews",
+      "version": "nxt-3.0.2",
+      "assets": [
+        {
+          "name": "NXThemesInstaller.nro",
+          "url": "https://github.com/exelix11/SwitchThemeInjector/releases/download/nxt-3.0.2/NXThemesInstaller.nro",
+          "sha256": "36ac0fac5477e08a176b2f155b8b3c170c1291004d943541348599bae8cf97a1",
+          "content": "36ac0fac5477e08a176b2f155b8b3c170c1291004d943541348599bae8cf97a1"
+        }
+      ]
+    },
+    "SaltyNX": {
+      "repo": "masagrator/SaltyNX",
+      "section": "Homebrews",
+      "version": "2.1.4",
+      "assets": [
+        {
+          "name": "SaltyNX.zip",
+          "url": "https://github.com/masagrator/SaltyNX/releases/download/2.1.4/SaltyNX.zip",
+          "sha256": "b96072fc1266febce624db66dce00079106d22ebdcb9bd9876724a5a5edb22aa",
+          "content": "41c9a1870cf959a69405f1554fc4916e704fb455138c66aa5ca5a277181bdc17"
+        }
+      ]
+    },
+    "DBIPatcher": {
+      "repo": "rashevskyv/DBIPatcher",
+      "section": "Homebrews",
+      "version": "921",
+      "assets": [
+        {
+          "name": "DBI.nro",
+          "url": "https://github.com/rashevskyv/DBIPatcher/releases/download/921/DBI.nro",
+          "sha256": "816db30d9ccc88e3a1cdc6e294ae71ba92b101628437ecddc94d9168fb1aa319",
+          "content": "816db30d9ccc88e3a1cdc6e294ae71ba92b101628437ecddc94d9168fb1aa319"
+        },
+        {
+          "name": "translation_en.bin",
+          "url": "https://github.com/rashevskyv/DBIPatcher/releases/download/921/translation_en.bin",
+          "sha256": "fc449d83a027a9b496320d5420c8b459daa4f47508412256c0df9a90047adb93",
+          "content": "fc449d83a027a9b496320d5420c8b459daa4f47508412256c0df9a90047adb93"
+        }
+      ]
+    },
+    "EdiZon-Overlay": {
+      "repo": "proferabg/EdiZon-Overlay",
+      "section": "Overlays",
+      "version": "v1.0.15",
+      "assets": [
+        {
+          "name": "EdiZon-Overlay.zip",
+          "url": "https://github.com/proferabg/EdiZon-Overlay/releases/download/v1.0.15/EdiZon-Overlay.zip",
+          "sha256": "8d594d97893376583d92e250d28d7e62f75e5b0bf68baf9b3d0232ab0bdef243",
+          "content": "3e600edbf028f59534a1cb286f38bc504f891d1846713488fcf9e9cac8dfdf75"
+        }
+      ]
+    },
+    "FPSLocker": {
+      "repo": "ppkantorski/FPSLocker",
+      "section": "Overlays",
+      "version": "3.3.2+r2",
+      "assets": [
+        {
+          "name": "FPSLocker.ovl",
+          "url": "https://github.com/ppkantorski/FPSLocker/releases/download/3.3.2%2Br2/FPSLocker.ovl",
+          "sha256": "aafc86615b9dc6e5a24269d130612ba0eb7824228ae1ccf0e13e132ab4790ecd",
+          "content": "aafc86615b9dc6e5a24269d130612ba0eb7824228ae1ccf0e13e132ab4790ecd"
+        }
+      ]
+    },
+    "ReverseNX-RT": {
+      "repo": "ppkantorski/ReverseNX-RT",
+      "section": "Overlays",
+      "version": "2.2.1+r1",
+      "assets": [
+        {
+          "name": "ReverseNX-RT-ovl.ovl",
+          "url": "https://github.com/ppkantorski/ReverseNX-RT/releases/download/2.2.1%2Br1/ReverseNX-RT-ovl.ovl",
+          "sha256": "5129a0e4bd3146664cc6f411a98322719bba62476c82ba6c729578f48ea00306",
+          "content": "5129a0e4bd3146664cc6f411a98322719bba62476c82ba6c729578f48ea00306"
+        }
+      ]
+    },
+    "ovl-sysmodules": {
+      "repo": "ppkantorski/ovl-sysmodules",
+      "section": "Overlays",
+      "version": "v1.5.3",
+      "assets": [
+        {
+          "name": "ovlSysmodules.ovl",
+          "url": "https://github.com/ppkantorski/ovl-sysmodules/releases/download/v1.5.3/ovlSysmodules.ovl",
+          "sha256": "261a83c56ba48161fa584d1c722ea5b9e2fe7bfd064e2cf751d75d1b5680dde0",
+          "content": "261a83c56ba48161fa584d1c722ea5b9e2fe7bfd064e2cf751d75d1b5680dde0"
+        }
+      ]
+    },
+    "Horizon-OC": {
+      "repo": "ppkantorski/Horizon-OC",
+      "section": "Overlays",
+      "version": "2.6.0",
+      "assets": [
+        {
+          "name": "sys-clk-hoc.zip",
+          "url": "https://github.com/ppkantorski/Horizon-OC/releases/download/2.6.0/sys-clk-hoc.zip",
+          "sha256": "19c0a34ef8d1dd29c74b88a1addaee76b6bc3b95919ec93f47ce881fbb69a6ce",
+          "content": "c14e97ead46fcd4d33e075bfd5eb3f328a9eb6d71f1ed10cae46b84326e2e9f8"
+        }
+      ]
+    },
+    "sys-clk": {
+      "repo": "ppkantorski/sys-clk",
+      "section": "Overlays",
+      "version": "2.0.1+r28",
+      "assets": [
+        {
+          "name": "sys-clk-overlay.ovl",
+          "url": "https://github.com/ppkantorski/sys-clk/releases/download/2.0.1%2Br28/sys-clk-overlay.ovl",
+          "sha256": "5fadfd8e5dcc4c00da5554e43b4040ccc67b091a756e4272053ef5fe8e1b074c",
+          "content": "5fadfd8e5dcc4c00da5554e43b4040ccc67b091a756e4272053ef5fe8e1b074c"
+        }
+      ]
+    },
+    "sys-patch": {
+      "repo": "impeeza/sys-patch",
+      "section": "Overlays",
+      "version": "v1.6.3.0",
+      "assets": [
+        {
+          "name": "sys-patch-v1.6.3.0.zip",
+          "url": "https://github.com/impeeza/sys-patch/releases/download/v1.6.3.0/sys-patch-v1.6.3.0.zip",
+          "sha256": "089ecb8c951fbfdf892123e229dda7a3412633faddcab7a5f67b261bee945b81",
+          "content": "5829f917151ef23077f9a4c0bcb4b4bc947a4f1c7a8ba47edf6120a33764faa2"
+        }
+      ]
+    },
+    "emuiibo": {
+      "repo": "XorTroll/emuiibo",
+      "section": "Overlays",
+      "version": "1.1.3",
+      "assets": [
+        {
+          "name": "emuiibo.zip",
+          "url": "https://github.com/XorTroll/emuiibo/releases/download/1.1.3/emuiibo.zip",
+          "sha256": "0153a9a53cbfc2c59f7ed19a2bdf04a637f1def21e6243fab2b4a6c88209e0de",
+          "content": "6b9a96a48ac48cd4e03f562b4d8d627257f77f1eac7c1ca60d6552c55de7a6bf"
+        }
+      ]
+    },
+    "Status-Monitor-Overlay": {
+      "repo": "ppkantorski/Status-Monitor-Overlay",
+      "section": "Overlays",
+      "version": "v1.4.1+r5",
+      "assets": [
+        {
+          "name": "Status-Monitor-Overlay.ovl",
+          "url": "https://github.com/ppkantorski/Status-Monitor-Overlay/releases/download/v1.4.1%2Br5/Status-Monitor-Overlay.ovl",
+          "sha256": "657f8dc29f7fec19f294a5984b1299992e2b68dd1aeaa378e9dd1fd875cede61",
+          "content": "657f8dc29f7fec19f294a5984b1299992e2b68dd1aeaa378e9dd1fd875cede61"
+        }
+      ]
+    },
+    "Ultrahand-Overlay": {
+      "repo": "ppkantorski/Ultrahand-Overlay",
+      "section": "Overlays",
+      "version": "v2.5.4",
+      "assets": [
+        {
+          "name": "sdout.zip",
+          "url": "https://github.com/ppkantorski/Ultrahand-Overlay/releases/download/v2.5.4/sdout.zip",
+          "sha256": "1e0ed6d7112f6283578220f3d3378fe27b1cd14910b28256f03fe232b284c944",
+          "content": "89e8326f26e708e25daf0fd3311044d1fadce7d86aef3fc394a29c0b3f7ce53d"
+        }
+      ]
+    },
+    "MissionControl": {
+      "repo": "ndeadly/MissionControl",
+      "section": "Overlays",
+      "version": "v0.16.1",
+      "assets": [
+        {
+          "name": "MissionControl-0.16.1-master-47e5d82e.zip",
+          "url": "https://github.com/ndeadly/MissionControl/releases/download/v0.16.1/MissionControl-0.16.1-master-47e5d82e.zip",
+          "sha256": "d62f955f3c4545167b24ea7b6f446a06cd7cd03d5470bf279acf41e7d6ec8379",
+          "content": "6d3b445b7979701facec0e8da618a348bc9ee0474248fa472c646f04ae1a63b2"
+        }
+      ]
+    },
+    "BootSoundNX": {
+      "repo": "KranKRival/BootSoundNX",
+      "section": "Overlays",
+      "version": "1.1.0",
+      "assets": [
+        {
+          "name": "BootSoundNX.zip",
+          "url": "https://github.com/KranKRival/BootSoundNX/releases/download/1.1.0/BootSoundNX.zip",
+          "sha256": "065ce30d4caabd5a33e5d16bf8ac263159185b2f728e8be5251ff55472f81cea",
+          "content": "44f816958c42373d3df41c00b193ca5d3d0759e287eea8bc7c3973302781bc9c"
+        }
+      ]
+    },
+    "NX-AudioControl": {
+      "repo": "Fh1do/NX-AudioControl",
+      "section": "Overlays",
+      "version": "v1.0.0",
+      "assets": [
+        {
+          "name": "NX-AudioControl.zip",
+          "url": "https://github.com/Fh1do/NX-AudioControl/releases/download/v1.0.0/NX-AudioControl.zip",
+          "sha256": "b80bfbe9a2e37f446e0607f90955bc20c8a09c67986fc29c4e48a21083e0f9ac",
+          "content": "18e9a168164a1bd125626c5cf9ecccc25c1544a6fdbad9ae6b399c3f787e07c5"
+        }
+      ]
+    },
+    "Theme patches": {
+      "repo": null,
+      "section": "Misc",
+      "version": null,
+      "assets": [
+        {
+          "name": "master.zip",
+          "url": "https://github.com/exelix11/theme-patches/archive/refs/heads/master.zip",
+          "sha256": "a26f0e01c8af40d38c1fd2d4d9c4a0106e52be384a8e86fcac34a4633e607650",
+          "content": "36c969aeb690f7d932cd12c64b7767f1f33e53148ca4c41e92a9cf9ff61e23c8"
+        }
+      ]
+    },
+    "Warmboot files": {
+      "repo": null,
+      "section": "Misc",
+      "version": null,
+      "assets": [
+        {
+          "name": "main.zip",
+          "url": "https://github.com/Ultra-NX/UltraNX/archive/refs/heads/main.zip",
+          "sha256": "fa519ab7cce651644555f9d03a66597e384e44c418f2e83aba47d7f9587cf0ce",
+          "content": "0f830ae1189a3480f17b9dde09b32a0106c2afb758eddb3f88a3cfae6d2d47c2"
+        }
+      ]
+    }
+  },
+  "configs": {
+    "atmosphere/config/system_settings.ini": "5fa2e836238d37ebc849f654a6cc7a4aea2aced103826c28310c48ea1781e708",
+    "atmosphere/config/version": "c80c3db2b2cb606bacf75bac6c2e4b9221e58958b5c800a6b0031b726c3f4bc1",
+    "atmosphere/contents/00FF0000000002AA/exefs.nsp": "aa8779a42c9f8011310b36bdaf221e7b4f7bd67b7b89e8198756646d7698256a",
+    "atmosphere/contents/00FF0000000002AA/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/00FF0000000002AA/toolbox.json": "67ce1d221737ee48579a16d24c16b6a8b7d95c80e6f35148a573f775f23a8f37",
+    "bootloader/hekate_ipl.ini": "df903b363f7771c691f4efd44c89bae80a07ff39def54eafa2e40235524a61de",
+    "bootloader/nyx.ini": "b90f64c9db8af94b4cc03c686a0eead435c8ee7a89712aedb1df459870299def",
+    "bootloader/res/atmosphere/bootlogo.bmp": "8b030af979a127c39dd48409926dd2ebbb38a751c410f623df653100c1e96e5b",
+    "bootloader/res/atmosphere/icon_atmosphere.bmp": "7ca20061edc6ba5f5a1868625b015a460467cc1e683e835eb9b43813507d4a96",
+    "bootloader/res/switch/icon_switch.bmp": "812ce27e63c5eed568e38e13965272d9507342673d1bb5f935d2cd152b7f80ce",
+    "config/BootSoundNX/sound/bootsound.mp3": "8729188c95b00c9aa2b0ea86149ad14266d7190db87464899f5dd0bfcfa9cf82",
+    "config/ftpsrv/config.ini": "5bc4e1b1b02f8c284e5756d0c49e24d78e86dce5c7f825c20ec73f5bc6596053",
+    "config/sphaira/config.ini": "957db39496c13e37c68df6b0a3eda32752fe584fc9657164214aba15d151a985",
+    "config/sphaira/playlog.ini": "18a5b31946d97b221a57662d39820e3ec3bff44978cb415e9d3df360e71d9d7c",
+    "config/sphaira/themes/default_music.bfstm": "2bc4c544be29ef5ccc71f14f2962295c2b3e4a448dce41b4d1a5b5076328bef7",
+    "config/ultrahand/config.ini": "234346454d90825609e444b3a450fb4d6faeddb657b031ee9157e47e88ef1115",
+    "config/ultrahand/overlays.ini": "f948c520a1101ee0dfa00af2df4818c9eebc437fec311f5b395eb287082d9fc1",
+    "config/ultrahand/packages.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "config/ultrahand/theme.ini": "d090cd64734f58b8650e84f27e62d1373e84c01a5105fa7d7da889f361be7f84",
+    "exosphere.ini": "c70e8927e703bbe1646a60480f6edb23bc51ea140a9db0e9f0d328b2929d455a"
+  },
+  "files": {
+    "SaltySD/exceptions.txt": "0ebb74938de19979a71f23ff39e9e2517e2bbc997f6772acec75e7783c493c37",
+    "SaltySD/flags/log.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SaltySD/saltynx_bootstrap.elf": "053e1d8496b9dde1a006a867ae89fcda4329f55b2b5b820104fcaeafdac7f6aa",
+    "SaltySD/saltynx_bootstrap32.elf": "ab6840516a70222e81b9b63cb9b5f5b9047817a19ad8db3cf76c03add53d6d54",
+    "SaltySD/saltynx_core.elf": "f9f339410cb50b183992848e8284c360f29a478ca64cb0047f3d3e8192f47d1c",
+    "SaltySD/saltynx_core32.elf": "657b7b9ce6f2351216df9928add850a6abd3e812576bd9a9965555415ef8d0af",
+    "atmosphere/config/system_settings.ini": "5fa2e836238d37ebc849f654a6cc7a4aea2aced103826c28310c48ea1781e708",
+    "atmosphere/config/version": "c80c3db2b2cb606bacf75bac6c2e4b9221e58958b5c800a6b0031b726c3f4bc1",
+    "atmosphere/contents/0000000000534C56/exefs.nsp": "f0b226b2572ca230523edf84364ed6d99cf1588f56ce5eef2e993c7d30657035",
+    "atmosphere/contents/0000000000534C56/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/0000000000534C56/toolbox.json": "c996a7784ccb3c91960b5de6d522c77d0b61fcf02858b0f51f178f58d471e7b9",
+    "atmosphere/contents/00FF0000000002AA/exefs.nsp": "aa8779a42c9f8011310b36bdaf221e7b4f7bd67b7b89e8198756646d7698256a",
+    "atmosphere/contents/00FF0000000002AA/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/00FF0000000002AA/toolbox.json": "67ce1d221737ee48579a16d24c16b6a8b7d95c80e6f35148a573f775f23a8f37",
+    "atmosphere/contents/00FF0000636C6BFF/exefs.nsp": "2878b1e40b694e3de719e3616cea4f6d1be406abcea7db9f7fc2140ec8f82762",
+    "atmosphere/contents/00FF0000636C6BFF/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/00FF0000636C6BFF/toolbox.json": "5fb2264ad605adbbdf1a4ddf81bf0bdb9b654fba2d69c5e9d4c776cc5f5a9dff",
+    "atmosphere/contents/0100000000000352/exefs.nsp": "41063742ef3cf9f39a06463a431019df479bb4300cfae04828848a089e3007f5",
+    "atmosphere/contents/0100000000000352/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/0100000000000352/toolbox.json": "79b7f8f9b280f6538ccc7e50e67c38c4440d4f85f4b60435a9d5d5fbdc80d1eb",
+    "atmosphere/contents/010000000000bd00/exefs.nsp": "d80fcff737b077caf8df6ad63ca05d752b2f5c9c40995c5e6d44adcc73a0d9e1",
+    "atmosphere/contents/010000000000bd00/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/010000000000bd00/mitm.lst": "ea2d5b800b31625f3caccf78b0cf16338df4400d1de914bc696859c88f8ad7a4",
+    "atmosphere/contents/010000000000bd00/toolbox.json": "61ecf37f5d42cb97767cd750627eede691b7c505342c26e656ad4bf2b1f73ee4",
+    "atmosphere/contents/420000000000000B/exefs.nsp": "0a0d3707b0af1a02a5f4b71c6bf6f7e17a6e47db98108deaa6c893c18da10bc3",
+    "atmosphere/contents/420000000000000B/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/420000000000000B/toolbox.json": "ce718e9f317580f3f91cd6f959263881f214a4c192d53150d68feb0aad58ae9c",
+    "atmosphere/contents/420000000007E51A/exefs.nsp": "24681d6342b40ca7bf904f6c0da78800a5b2ca992c893a3bbf7bec7acbdf3b2f",
+    "atmosphere/contents/420000000007E51A/flags/boot2.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "atmosphere/contents/420000000007E51A/toolbox.json": "d0ff2163ae25c8818040c330a87bb577ec915e2be171d7de0acb589123e0e6d4",
+    "atmosphere/contents/420000000007E51B/exefs.nsp": "93bb44e15c9abe876b5f07ff60a70371b50a19d9b81a5d7791b19996c4b60e3d",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/053ABE9494B5397AE818B3721DE50995.ips": "dd77f50843fe5a921228fb9d31d975c467f9f1338c168493648922b64cb6321c",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/10C14AD346AE02E32AA52A9030A3A87B98D89642000000000000000000000000.ips": "7809a613838a2c9060a89167224756aa133345324fea394ea086f5e8dd842ff4",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/66A8EB853DE90A1AF13D19DA575E339B.ips": "08af99f31b2da8e2cf8ae0993b895b1636f82cfeaf99717c58fb10b941d475d2",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/C4D1BCED9D8C5B813295345B7F9FDF97.ips": "89d50629e951dd4c22801ed7b3ea45c3e56b6f61ecef4898fbaaf615ce0114c8",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/ECF4B91AF1B669ECD92829F25E4B530EE48985FA000000000000000000000000.ips": "a3ac3f5dcdaab6bcb79a284eb38b7976395cfa64f33b5a6a97016332ff8fb646",
+    "atmosphere/exefs_patches/SaltyNX_Fixes/IDs.txt": "be8230a60691b67ad2d67cdacd56796c936046ffd34a6cfecdeeba0ebf35d2b5",
+    "atmosphere/exefs_patches/audio_mastervolume/3a75b4a62dad189b2c8b30e4dedb4e15ece56850.ips": "f6c0cb4c6ab60c76ce1e2e1428ad1f1bc96b333e3c6c394a7751795b3c11bab6",
+    "atmosphere/exefs_patches/audio_mastervolume/62b74bae7163b0ea9b29ed5a050c09cd8299c14e.ips": "c7b08b3e458c3bc2eaee11ada9357c93085c82f317b265381604913897124289",
+    "atmosphere/exefs_patches/audio_mastervolume/d1e98d469d5bd0e878fdb06e7ca517ba411d4682.ips": "8f203a9fa36ef913982bb4d826923b84cc06bc0324f3952a19416d17f4bf0eee",
+    "atmosphere/exefs_patches/audio_mastervolume/e163d0b718e32f87430ca8c98fda2e22ba733990.ips": "65f7e555e92066631b7fba7431d76c9368e2d90bf2b83b4f815821b1f37fa711",
+    "atmosphere/exefs_patches/bluetooth_patches/064521C83399E09105D9A190688BF8B8C2C7F17C.ips": "6e047055435c0f48991b50beeeaf652c748a5104ea557fd3222b44e4b414ffec",
+    "atmosphere/exefs_patches/bluetooth_patches/08601CC4C629F981F92CE3A53C2633FB46DDEA00.ips": "fa2fbead3f51e5956bb82f7103a3a58ea9617b228a1106c33fc621147569befd",
+    "atmosphere/exefs_patches/bluetooth_patches/144B678306269E3D5245497373C09866D2BB8997.ips": "e4ec41012ce863441e3ee21337fd2835f40448bc4be31e5b4d2750cc1b5875e5",
+    "atmosphere/exefs_patches/bluetooth_patches/1494B3B0E7AA4234ED20F6A5EEA60620522C68DD.ips": "9a0201bea97b25875d7d9d5b63e5d3e6f075af0d73e76babfdc36c0716dee5f8",
+    "atmosphere/exefs_patches/bluetooth_patches/1F66DEC82762261430EE292541FB42F5C4E10AA5.ips": "d84da9f24ab359992c8e5cb59c90ae6628ebd4db985f40c3d019e14996b93f02",
+    "atmosphere/exefs_patches/bluetooth_patches/2C0A323887EF342C448A72DDCC4CD737A298CD46.ips": "91e7b0f79d884b46828770393164f465471f9b75c4b261220712511dc282355f",
+    "atmosphere/exefs_patches/bluetooth_patches/2CAAD3898B7B2F01DF66480EDD919C6A26735EC9.ips": "b6a50e27b190a7ab399e8c5ba99d92caf1eb288a53b38da736e1e5fa81e1e508",
+    "atmosphere/exefs_patches/bluetooth_patches/2FB16085E21E54B90E88ED2F98CCC850334E128E.ips": "8024dfdfff758a49be2b2056331cc6a4ffbe0fa0e8c617b7d4c82297961625d5",
+    "atmosphere/exefs_patches/bluetooth_patches/3714A43B8F9608D08E15067AB1D9CE8E68FE56BC.ips": "24c53d2e498aa8f6b9891a7ad48709207e35e9cf098f95f02cc262a08738aa72",
+    "atmosphere/exefs_patches/bluetooth_patches/4F57845D1DC166A46C42D5AF45164196DC7CD198.ips": "d84da9f24ab359992c8e5cb59c90ae6628ebd4db985f40c3d019e14996b93f02",
+    "atmosphere/exefs_patches/bluetooth_patches/532B667232B3992A0A3D007AA85E4944C4138D15.ips": "f89c62b5a1998048e3b1df4ccc918e4a82670393b753f0bbad2796257bd3a570",
+    "atmosphere/exefs_patches/bluetooth_patches/63C4312A5D74B29DFC3DA25B6E3E4825575D23C9.ips": "7daefb1418d3f287c941be06bd9ac8aae69c75cfd9d0473beb8ba05f47c0b6f2",
+    "atmosphere/exefs_patches/bluetooth_patches/68C915388537833D1AC9F3920708A1A0FF73E35A.ips": "43c754b8c965cd6aeaa4df60d67f29b456484532fef0b3a57aa359a3bbb7e150",
+    "atmosphere/exefs_patches/bluetooth_patches/6B33C2B7C850A47325F775218C40FCEA2F935A65.ips": "efdaa4d70bfd31ba4ffbc07bb7aef61fe1384defc8a358518b7605d0ca79334c",
+    "atmosphere/exefs_patches/bluetooth_patches/6FCF8BF53C10AA346555D74EC602FE53BF3BD88E.ips": "4f356c5be259c72e01b125a78b1eca29a7d2aaf679367fa26bec434a64c2850f",
+    "atmosphere/exefs_patches/bluetooth_patches/874B8CD62BF6715648382BBADB70790558FB3F35.ips": "ed0453c186f7d56cf99456fe6de467f58ce1b3e9322ebc20d7a6fb7554b8f1c2",
+    "atmosphere/exefs_patches/bluetooth_patches/8C2A437B9890F6DA0FC3B17442B10E7C6FCDA6AA.ips": "2dae5c6bf466a345e7ee57e9a84b3f842a9fb2b9af6571d065025136baf850f1",
+    "atmosphere/exefs_patches/bluetooth_patches/935E9D4099CE74FC162915E7CA4952E64FAD6671.ips": "f89c62b5a1998048e3b1df4ccc918e4a82670393b753f0bbad2796257bd3a570",
+    "atmosphere/exefs_patches/bluetooth_patches/9480B34033289645E7924E99F467CCB9B4632A5D.ips": "17f8865fbfe8aaac2ead7f0c170b7c8c42cce1383902c37b387d391b18ec809b",
+    "atmosphere/exefs_patches/bluetooth_patches/9E95C91568327AD850AC0C2246F1078DE72B28F9.ips": "5160296e8e78e77bea9ff73fe061c8b45fdb0db4b9948400ab70a3699dd93f05",
+    "atmosphere/exefs_patches/bluetooth_patches/A3278455B3EC297F0CE6CD629183EC86376EE0DC.ips": "aa617a85b1936202791e50581b25c698d45ca59e3bfdab6b2525a485b7410fc8",
+    "atmosphere/exefs_patches/bluetooth_patches/A5E6C2D20334CC787617A15BFB9F53F2DABA3E41.ips": "444415fe71831fa942c1a10ffdadab1d16274f9eb6fb34fa873612784b7059d0",
+    "atmosphere/exefs_patches/bluetooth_patches/B58A6445D7C724D6285EB3922FE6BBAACDA33EB3.ips": "7d288e873d464576dd4a7cabab9ce8231035c1820f7870da7be2996d78d73266",
+    "atmosphere/exefs_patches/bluetooth_patches/BF43446888D1182FF37420B6762EB1136DE45947.ips": "1bf1b908d3d331ba498fa4a7d56ae8ac5e46c34f632f1004ffd8ffe664fa7d94",
+    "atmosphere/exefs_patches/bluetooth_patches/C91C6FC8AA4C39222D6CCFE0FFF468543105E59B.ips": "07861002c331190a76678950703bad83e9f58f031d001f24408f34a9f3f985f5",
+    "atmosphere/exefs_patches/bluetooth_patches/CCE16D29FE9BCB44AC40BB1703D586FE467496CE.ips": "49d448f9b130dd37c3d42b9c131b3f26a3e1efad1d0eefb6c1fea898c0d75d0f",
+    "atmosphere/exefs_patches/bluetooth_patches/CF0C34FC10F75EB2DAFB302FAA3E0C188621B2AD.ips": "d6812e005125937ccec1b0bba61135ecd1d88bbd786001cbca3d0d4e9e32b2e9",
+    "atmosphere/exefs_patches/bluetooth_patches/DBCA0074043CA7E74E9C58A84ACD7A3058968528.ips": "bc4d6cb8d08da15f1ce66de4834ec15389840b2c05a30ee36e15346b915d9bb6",
+    "atmosphere/exefs_patches/bluetooth_patches/DE1AC63A4A0B77CCEA606CF15B62AA587EB9CACC.ips": "c8cc13c5e0f360e5f856af6b1bb72d6b84e812d7e04bfafa099a336aee170c2d",
+    "atmosphere/exefs_patches/bluetooth_patches/E9A6DBF13FE4A6833606A834C7BA1B44F4DDD60F.ips": "32834e215b7cb55dfe6df1b1d8144a57848033da9fff393e443304b5a3824479",
+    "atmosphere/exefs_patches/bluetooth_patches/F013FF4FC88A8376A6F3C401485C0718E1B5E148.ips": "7150134225cdb869bfd8a9514cfbbd551f29a205976ea1f8970eeb5a1059d0d8",
+    "atmosphere/exefs_patches/bluetooth_patches/F3DCA5480F0523699683C0D16B7C51C6394897AF.ips": "73cc292383b3152fedffdfe52ac4f1f2bee675b0591019734e89a1c620ba5c92",
+    "atmosphere/exefs_patches/bluetooth_patches/FEE47E024FC9C62838FF1A476DE243DCE673DA7E.ips": "27c7b84558b714ece0dcb598989ec37f968f5ff2ae6b3816f4f70ed9b46d8d2d",
+    "atmosphere/exefs_patches/btm_patches/0A2E87DB96AC17AC6260A878D215A20D9EDF0917.ips": "ca97372802bb5d81619417c5feb3d4c4d962f45e611bc0949e894d0c448e21d0",
+    "atmosphere/exefs_patches/btm_patches/14F4527DDB0C367055C384E2DAD037B3996664FE.ips": "b2f16af198bf2c1867b479a9b8f53f5d7d957d1dd88ed240fdfa8550ca14c1fa",
+    "atmosphere/exefs_patches/btm_patches/18D29F36EFBD14C6187F1E337749326DBC6BB205.ips": "f72a89aeb77003d74fcdbe9e20b4aa01a5010609b30cb76d1db78adef88c8db7",
+    "atmosphere/exefs_patches/btm_patches/1D460F761919B94522A10B3EB98F4EC75FBDBC4F.ips": "84f9ddeb6e44133976bfc66dc08b054e76ff057e28643420bd676eed3091c83f",
+    "atmosphere/exefs_patches/btm_patches/29B9122754BCEE48E4225933979F233939A49CF2.ips": "21e17366ad09e1881f190815e289b9cb819f4fd61fa4c173981e3201d0429958",
+    "atmosphere/exefs_patches/btm_patches/344A9B35C77BF85392AFE04B38701D1EB0BD41CF.ips": "d83dae22a8affbbe6230deac28abb1657d619b8b49f40a2c43cd882ce9d0c69a",
+    "atmosphere/exefs_patches/btm_patches/37B45CA18B0D5E1768119971677690857A185AAB.ips": "fc744b42cc79beaca3d3602d617b08274e12641a6b3b7f9bee179c6200afc9c1",
+    "atmosphere/exefs_patches/btm_patches/38FD02642C00EB3EDD3625728EA308C3B3CDF4B4.ips": "d31fc46a40aaae6470438d6402660ae6363aef974dac043a2adab66fc9474a54",
+    "atmosphere/exefs_patches/btm_patches/3B03D2FF7700627216F3562340991844C957F457.ips": "51737431ec265f663891ca3f9d816225150668cd25e375b5bc66c9ebfd1ff554",
+    "atmosphere/exefs_patches/btm_patches/479F51DAD54016A7F68CFCB521F5D3E37B2855B2.ips": "8882318745cdbdbe3679c2d314b88707d88bb4f823c0a9eac8cf03df819c3afa",
+    "atmosphere/exefs_patches/btm_patches/4B92BF76660CCD6DE63528EFDE37147BA5997B09.ips": "0358b73035653e983bab83d1e16c3f8ec83de87aaf76e662425893dfe7fcf3b3",
+    "atmosphere/exefs_patches/btm_patches/4BBB2B9942C1DA04BBFB4933AA2E350BB88F3C14.ips": "941271336a7a71ce167361ea72429e47cf365c58f8ec8d14113bf6df316d3a0c",
+    "atmosphere/exefs_patches/btm_patches/52E5D19BDDF49586901BA4CF869723BCA222AAEC.ips": "71f56c010e5ced5d8614cea7f6d43ebd6e70deed2605fdf11b88abb88730e49a",
+    "atmosphere/exefs_patches/btm_patches/58518E8DDEB26A678AD332B3C8D772C24F2B0636.ips": "bf60a9fc81da7b377d7ba63f40268c949452d2758ccb1e9e6789648707e5ad29",
+    "atmosphere/exefs_patches/btm_patches/5A2AA468F272E49EBF0FAB8B379CC5B32C1A7409.ips": "056bc58dfd51e587bc66d13c270362008df1a565398a6851f0147d20ac0233d1",
+    "atmosphere/exefs_patches/btm_patches/5B1ED394A7DD3910E5B375F3C90B13505347AB0A.ips": "89772d6413ed4a48620e1f1f4dc68b745ae45f775e762e873ea728a89d327dbd",
+    "atmosphere/exefs_patches/btm_patches/5C60D97B9800074FE755847EE2380477A751BDAE.ips": "4294b896b080bef89ccc0a089b2fdc4fae78c74101bc8533b7d968038efb05c2",
+    "atmosphere/exefs_patches/btm_patches/65AFEE4DCE1AB795540D204AF5D20AAF83C68A82.ips": "7822f0e023f49e023c83849b7900afe983f07d858e113d7689953bfbdc5821e1",
+    "atmosphere/exefs_patches/btm_patches/6DC55293131192B617564C62732CC2CF445BD248.ips": "df92d68acfef37dc42c001fbea7a5c632672ac8e9ec636f97f4c4087a64f34bc",
+    "atmosphere/exefs_patches/btm_patches/702DADCB98BF9D965F570BCB6A6480C00AC536FB.ips": "6badd837f2daadb596360e96516d46e7ae1b6eec0a620639ef08dd5085008ea4",
+    "atmosphere/exefs_patches/btm_patches/72FC67F6B4096661FDF4773527E84967B7D8A460.ips": "16f04d945df40f4afafca41703ec97f067f16fbf624dfc695d68bd7e8265ccd8",
+    "atmosphere/exefs_patches/btm_patches/A0542C24E727081A6A63208700C9CE2952B6914C.ips": "1a0216e604f90d385d689b2b38019f127c0c137afa3d8502821e1dc0c6f50269",
+    "atmosphere/exefs_patches/btm_patches/A27AE05114E0A17160A8C74BE8472F8EE6ABB273.ips": "f130ce538a2e2e24db1652979b7cb55157713a7cc0be1810c5bf29d056a73ae7",
+    "atmosphere/exefs_patches/btm_patches/ADB4B59EFF92BC8D10F28F87FD9C13666213EE53.ips": "2199435886818a3bc7e44b95923dcb58d9f8487e9133725a496adbdd7a074a58",
+    "atmosphere/exefs_patches/btm_patches/B517E72EBBE1EB0223C3DF26E0017F727F9AD776.ips": "866d2650ae5e8c0c96349472e308529a80d7dd0d33bbd8ea0810d25f43e12e12",
+    "atmosphere/exefs_patches/btm_patches/BEB8B07DA484E04B326001799DBE53D53D0B5D52.ips": "0cc04a8bba77ec53630d2b7b114058d153f450863dde0400287e2352dc03f270",
+    "atmosphere/exefs_patches/btm_patches/C35EF7937BD7C91FDC66F2E983D39388988364AF.ips": "2b1d3946f279dd9bb2f42cc7cdf822a3d7776875cf9209957ec183ebc07467e8",
+    "atmosphere/exefs_patches/btm_patches/F4D4976A1E1E6F498F6824151C11C6AA9EF81375.ips": "941271336a7a71ce167361ea72429e47cf365c58f8ec8d14113bf6df316d3a0c",
+    "atmosphere/exefs_patches/btm_patches/F5FC951E3AB69B6FBE6250B7B73D22B3F75EDE28.ips": "6badd837f2daadb596360e96516d46e7ae1b6eec0a620639ef08dd5085008ea4",
+    "atmosphere/exefs_patches/btm_patches/F9A63D3E811CAE0F06495124042CE7F951CE505B.ips": "f507b7f3821985b93cba48b50aa30262bc523757d09331f1c0b723b8c06f1762",
+    "atmosphere/exefs_patches/btm_patches/FE1CFC6CE0B8F5A3C779ED67C9EF8C08DE959AE9.ips": "be2d9686d47314cd98c4cf50cdeeeeaf23b36de3d945105a42cc5d010651faa2",
+    "atmosphere/exefs_patches/hid_patches/0ABCF878B3E22287ABD15F1F73B365DB26A4E124.ips": "eb678f6f681b8f2a63be854e15b5bcd9c8bee145747df2811968efff393969ab",
+    "atmosphere/exefs_patches/hid_patches/0F02EFFAEF77015948F635C1559FC32507074451.ips": "21f693581c14e0ddc7ecf972ef06efbd8aeb33eda8896589a1793f511f9f9dac",
+    "atmosphere/exefs_patches/hid_patches/1780B569DE805B4E9AFBCC366D93BB313DCBA67E.ips": "4e374b8fa4d26db4dee58094436980db27c9b6a069d3d463ab2a78f47fb01d38",
+    "atmosphere/exefs_patches/hid_patches/296FB63B038723955A5EEE4720C3E17BF49B5ECC.ips": "925a82686c6f9fde0b36ddd8c8cb7956d4284defd56a0c051ffce6e7a61d8ea4",
+    "atmosphere/exefs_patches/hid_patches/2ABBA006E9E162C1EF0A28E6477725F2836FFEC9.ips": "1b0663d9c4bc076e3bb29be327492602789e012f69dd4b31848091935da75f30",
+    "atmosphere/exefs_patches/hid_patches/453AF9911A69ED566732A7AF2BF54B0B50BC3255.ips": "1ba8d4609e20c5c8d5104e4a2d6b1b4309e249a960a295b687d656c211e7113b",
+    "atmosphere/exefs_patches/hid_patches/47BCA8366FC3D4C9E86592E8FC42485989E69CCB.ips": "1845b2bec24a5367353a2b9fbed4f5c056d2fef829447f31ae791a182d864fd1",
+    "atmosphere/exefs_patches/hid_patches/6AC68185D4597477D9AD8A2EBE014733F2BCB104.ips": "4e374b8fa4d26db4dee58094436980db27c9b6a069d3d463ab2a78f47fb01d38",
+    "atmosphere/exefs_patches/hid_patches/74480E653551A0415F90CD61E4B851C60E71E674.ips": "7589d84d1e1b2dce65d1f505b1e79dce857687ce387b0a7b60892b72ee1730ef",
+    "atmosphere/exefs_patches/hid_patches/765B710D7D40049E06C1326F5B57123B74A2E4AD.ips": "cc16a599ea9cdbd1be089526d7a37bbfaea39da5f6d652c9356884b10e4a74f9",
+    "atmosphere/exefs_patches/hid_patches/98EB0277ADFC171F79765FCC8A56674AE39B08FC.ips": "0ddc51f8e633ba0a238d7b01d149456ce60eb2b76d3ba46e49317ce89193abdd",
+    "atmosphere/exefs_patches/hid_patches/9A1F471859D99957A81B2FC21169EE4DBC191734.ips": "eb678f6f681b8f2a63be854e15b5bcd9c8bee145747df2811968efff393969ab",
+    "atmosphere/exefs_patches/hid_patches/A2F71DB9568A864B8AC81AC79E2735A53A9CD291.ips": "0ddc51f8e633ba0a238d7b01d149456ce60eb2b76d3ba46e49317ce89193abdd",
+    "atmosphere/exefs_patches/hid_patches/ACA9C5D9BF1A0558251E6D2FE2D0CA4DFE7B90AC.ips": "eb678f6f681b8f2a63be854e15b5bcd9c8bee145747df2811968efff393969ab",
+    "atmosphere/exefs_patches/hid_patches/AE8B325431ED958F335615EBA5312870A92978CB.ips": "24f1617d8a200bc01eb5ee4a480bb16812e8f445dd008c100b4a4fe7094611e0",
+    "atmosphere/exefs_patches/hid_patches/B5D1C5A111EB89E72F2EBF93D1343DFD7BF4E421.ips": "caf8fd24009188a0a9ee0e21e0e35d8a70fc3bacf6e4137961ea280700c447d6",
+    "atmosphere/exefs_patches/hid_patches/BBEE6C2C132C849BC313B0E38732D91B9C45FBFD.ips": "d1b67d4e7fd927b045934236875a404e68f233e67dfaf5d300db52ed7961d23a",
+    "atmosphere/exefs_patches/hid_patches/C3030310E47B3841417518902AFFB2301F0033FC.ips": "8ac86e11db786deaea4ed2a22b00fa057377ab57d29868125894fd2a784c08d6",
+    "atmosphere/exefs_patches/hid_patches/C5FCB68A301FD160FF5209C54175AC51D69750BC.ips": "e2c23de877b0b1eefe1aac64fc4cb0b55eebb5aa182339ec1b38e2d37a96db06",
+    "atmosphere/exefs_patches/hid_patches/C9636704F7726BF77CEBBC53FFB14A80D8F789A1.ips": "a696627e3043270137af7f4a50bb774f7e76acd1da9c4493b72a1e86e9a5f905",
+    "atmosphere/exefs_patches/hid_patches/CA1A12452AF8789F5D03BF2A70260CE80D7DA5C4.ips": "05cd4ac56243ba1a51866a8d6c9debb2e70ca4a6f2ad37132a0bf20f62a159e1",
+    "atmosphere/exefs_patches/hid_patches/CEE923637C0797454FBE98A64F63D2B9F39B62FC.ips": "7589d84d1e1b2dce65d1f505b1e79dce857687ce387b0a7b60892b72ee1730ef",
+    "atmosphere/exefs_patches/hid_patches/CFCBD39A38FC2E8FC1273B4B5BF7C619FA93579E.ips": "252c2a1e38106ccc542f31eddd1f1c7f6f3bbaa143c128d71366ad14e4ce6294",
+    "atmosphere/exefs_patches/hid_patches/D209357BF939276179EF943C8DC88E482C7F588E.ips": "751b5670c40bb55e360e03386837568d3bb147832722b2dc68adf2d67fb3800b",
+    "atmosphere/exefs_patches/hid_patches/D7E71B92FAFD5E6D670F36593D98DC30AD15A24F.ips": "2cea06ccfb23a5d8888afcfd0f47b807bebd352fd3867935245f72db8a51a9f7",
+    "atmosphere/exefs_patches/hid_patches/E5139E8D47BE57C31DA97FCFBB66472416D60BD1.ips": "2cea06ccfb23a5d8888afcfd0f47b807bebd352fd3867935245f72db8a51a9f7",
+    "atmosphere/exefs_patches/hid_patches/FA528960A4ED9B4C408D2667BFE7C8BCD80E1FE2.ips": "36328924a5bb4de36d44f2eadd811ef23e2f26518991a606a59bb822f5eb7440",
+    "atmosphere/exefs_patches/mastervolume_patches/116db0393d9d91c689d74505344e52f670961f74.ips": "585067fd04afb3c9c33def31af1d7fc869d48b1b910f1441f588b42c7e00447f",
+    "atmosphere/exefs_patches/mastervolume_patches/3a75b4a62dad189b2c8b30e4dedb4e15ece56850.ips": "f6c0cb4c6ab60c76ce1e2e1428ad1f1bc96b333e3c6c394a7751795b3c11bab6",
+    "atmosphere/exefs_patches/mastervolume_patches/62b74bae7163b0ea9b29ed5a050c09cd8299c14e.ips": "c7b08b3e458c3bc2eaee11ada9357c93085c82f317b265381604913897124289",
+    "atmosphere/exefs_patches/mastervolume_patches/d1e98d469d5bd0e878fdb06e7ca517ba411d4682.ips": "8f203a9fa36ef913982bb4d826923b84cc06bc0324f3952a19416d17f4bf0eee",
+    "atmosphere/exefs_patches/mastervolume_patches/e163d0b718e32f87430ca8c98fda2e22ba733990.ips": "65f7e555e92066631b7fba7431d76c9368e2d90bf2b83b4f815821b1f37fa711",
+    "atmosphere/hbl.nsp": "853df8526557b82c6b2018a8a102d22e8306687415e49653530dfd9a1d603b32",
+    "atmosphere/reboot_payload.bin": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e",
+    "bootloader/hekate_ipl.ini": "df903b363f7771c691f4efd44c89bae80a07ff39def54eafa2e40235524a61de",
+    "bootloader/nyx.ini": "b90f64c9db8af94b4cc03c686a0eead435c8ee7a89712aedb1df459870299def",
+    "bootloader/payloads/KitNX.bin": "e5c3612d8a32eafd95bbbc228fe4b4c3db305e1e0f6c6a9639f207a18fd9f117",
+    "bootloader/payloads/Lockpick_RCM.bin": "7d7f9d303ae9e25066b05c3c156eff5663f24144d7a6dea1bbf422f9a94a2d27",
+    "bootloader/payloads/ModchipTB.bin": "068f82164b60d242f3715c2b0f8b66db2fdaaf9d1c44e64f494401f89610156f",
+    "bootloader/payloads/TegraExplorer.bin": "e1ef7db7c9b0f3a8fd7b9e5fe4c39e12e5e33ba4d72e296903b9e50ebc066d05",
+    "bootloader/payloads/Warmboot_Extractor.bin": "c6c8d6030eedc3d7279e311db5818e1e3be02b8e210cecfa56c3ef404bfa98d0",
+    "bootloader/res/atmosphere/bootlogo.bmp": "8b030af979a127c39dd48409926dd2ebbb38a751c410f623df653100c1e96e5b",
+    "bootloader/res/atmosphere/icon_atmosphere.bmp": "7ca20061edc6ba5f5a1868625b015a460467cc1e683e835eb9b43813507d4a96",
+    "bootloader/res/icon_payload.bmp": "69ab9e410962878ee419777d29415b967e7a67ca3e984e384d0ef212baee9c0d",
+    "bootloader/res/icon_switch.bmp": "0c0f95889f874e6de0e04d55adfcbca127b251e31d358f27244869b5e80fa073",
+    "bootloader/res/switch/icon_switch.bmp": "812ce27e63c5eed568e38e13965272d9507342673d1bb5f935d2cd152b7f80ce",
+    "bootloader/sys/emummc.kipm": "a0154fcbd43dad6ef5d076e5565ed4a8216686aeab89b3107878f33d33a63d22",
+    "bootloader/sys/l4t/bpmpfw.bin": "943463950880ae7892a1eb8d3a280b3f86083bca0164c663bf4126210be73ecb",
+    "bootloader/sys/l4t/bpmpfw_b01.bin": "19e907f80a8760da39d6a97fae825955daacccc6c1a382e22df52169e39ac09b",
+    "bootloader/sys/l4t/mtc_tbl_b01.bin": "12e49e9770b61539d072c6145700659977917076325540aeba9022ff51672822",
+    "bootloader/sys/l4t/sc7entry.bin": "676aedce279d0912bb30c1e06c28b6cbfbaee24f7b21cb8e1f7da422b34b28cf",
+    "bootloader/sys/l4t/sc7exit.bin": "5e9ce4dd187145c096043509aa8e5a576668bdf8c6781d7bc70bece2aaca79a3",
+    "bootloader/sys/l4t/sc7exit_b01.bin": "39361cb53efff5b85cc3b97d89610cbb76dbf6d3110afe879d0e87e32a672f59",
+    "bootloader/sys/libsys_lp0.bso": "38b73773d47014841823c72cade509e1986cf1c0809e39c64a20cc2186c4d4f2",
+    "bootloader/sys/libsys_minerva.bso": "73d6c05475e530a3e098065024a5a3bbde5a2371123081904c8ac0cb7bae395b",
+    "bootloader/sys/nyx.bin": "309f58f934b50c4ae990f8dbb02b7106c16b9391bb1e516d66f1aa48871d1e6d",
+    "bootloader/sys/res.pak": "3570aa7a28b6c7cc3bd1003f3e0aa6e3ef58064da9708717b18ab1e178f959bc",
+    "bootloader/sys/thk.bin": "4c04434899d04a364fe9cb98aa98c0a3f0bb5c4ba42deab15e0485e9872519e2",
+    "bootloader/update.bin": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e",
+    "config/BootSoundNX/sound/bootsound.mp3": "8729188c95b00c9aa2b0ea86149ad14266d7190db87464899f5dd0bfcfa9cf82",
+    "config/MissionControl/missioncontrol.ini.template": "c864a3aa6b86bd2f71685fa4a23262c78d2310d5264af202358c3786789aa986",
+    "config/ftpsrv/config.ini": "5bc4e1b1b02f8c284e5756d0c49e24d78e86dce5c7f825c20ec73f5bc6596053",
+    "config/sphaira/config.ini": "957db39496c13e37c68df6b0a3eda32752fe584fc9657164214aba15d151a985",
+    "config/sphaira/playlog.ini": "18a5b31946d97b221a57662d39820e3ec3bff44978cb415e9d3df360e71d9d7c",
+    "config/sphaira/themes/default_music.bfstm": "2bc4c544be29ef5ccc71f14f2962295c2b3e4a448dce41b4d1a5b5076328bef7",
+    "config/ultrahand/.sounds/default.zip": "3a4544c660d4e37836c0fb2ee33ef237a1e25be35beb43f8512e3f7b989ec190",
+    "config/ultrahand/assets/ppkantorski-1.rgba": "55da69ea7ce3af87a0d0deb0d00b9f0ac7c43fd08cfa9768bd79b9c6a793d0c5",
+    "config/ultrahand/assets/ppkantorski-2.rgba": "61689e0d99aa2471bc738d4953e4935d9bd6b46faab78b483f21db5185165d25",
+    "config/ultrahand/config.ini": "234346454d90825609e444b3a450fb4d6faeddb657b031ee9157e47e88ef1115",
+    "config/ultrahand/flags/NTP_SYNC_PENDING.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "config/ultrahand/lang/de.json": "1c3df1341afe6aec2c2d6b7e731fb8c9ee380c533cd7e2c99b553276c39ca304",
+    "config/ultrahand/lang/en.json": "164e8822cd1c81014225f0b45b9f128f1c533ba2712d8aca450336cfb87dc898",
+    "config/ultrahand/lang/es.json": "5b700777836c54a939e053bca7668f12fc657e2847f6abf624d1a8f72dfa063e",
+    "config/ultrahand/lang/fr.json": "782f1b18c27a2db4358eba046fd469df20e22e7c11e8e6ff126311831816b42e",
+    "config/ultrahand/lang/it.json": "f7ee15bb18b016a2f30808a02be732b5fc11302819ef2b9fb28dbfb09b138e7d",
+    "config/ultrahand/lang/ja.json": "6776b9c3812f8d8e551325124d19a9ff6b9c48c2077c0d07b579215aa3f8f16c",
+    "config/ultrahand/lang/ko.json": "5ea12b7af2fba64ebbc3ec861c97ba1a4f1aabafd21d74644f41bdd802c79815",
+    "config/ultrahand/lang/nl.json": "7bce966e545b2ccbb931b330becf0488e4b376fdbfca4c4105bb2aabdbc751cc",
+    "config/ultrahand/lang/pl.json": "61c579c38fca1f267fd77f7385b98f6a5dd1b57b76ff4ce13b26c5da947dc1d2",
+    "config/ultrahand/lang/pt.json": "f5ea90ccad595fb93a35afef09360737bc3c9dc5896b02b1c019f0fde9a5dfcb",
+    "config/ultrahand/lang/ru.json": "47b7769f9cd2c4506644017d079aac0e89a765a8160cffd88dce87d7364e16f1",
+    "config/ultrahand/lang/uk.json": "8ca21ee0e7fe4c08f70461ec1b86e03b74b124aaa2cddf82eda11a79dcd7a73e",
+    "config/ultrahand/lang/zh-cn.json": "601c5db1c553533259940a4f9835aa0b3284eef62fe91e83a23dbe7093f54374",
+    "config/ultrahand/lang/zh-tw.json": "631a6a70b5c30d0fb1b8b1cd3d455a90bc0afffc8286518b7993314fbef1ec96",
+    "config/ultrahand/overlays.ini": "f948c520a1101ee0dfa00af2df4818c9eebc437fec311f5b395eb287082d9fc1",
+    "config/ultrahand/packages.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "config/ultrahand/payloads/ultrahand_updater.bin": "b0627ee3e2e1217d075374fe26d7414f92af78713700b40b0bf5a7654c8d3b23",
+    "config/ultrahand/sounds/enter.wav": "6399431074dd43d281222d5e6d58679e062f8b51c82cb7a23dc385e846852e51",
+    "config/ultrahand/sounds/exit.wav": "cb1af92ecc8aaa69a734be0684ce27d1baef49f0f3fc0f4225f94f31f0f87595",
+    "config/ultrahand/sounds/move.wav": "41ad1f01a54efabb48d1b2922a5659950c846ba1aa958dd84570db368f37e336",
+    "config/ultrahand/sounds/notification.wav": "11b2effef8ba4cc980e1958d6693816ba418e473c63260ac089f15a8ad8c0595",
+    "config/ultrahand/sounds/off.wav": "52ebfc52e809fa527a7d597ec41f2212132c9b6c4eefe0b3eda039792dc2463e",
+    "config/ultrahand/sounds/on.wav": "1740921fc2456c5a627ba0563a47e633174a63a731480f5c401f361c67289327",
+    "config/ultrahand/sounds/settings.wav": "29d7584fef8442b77a92760299a2341fe12309246bc187509be3f9d8c0b3adde",
+    "config/ultrahand/sounds/tick.wav": "f162c1af51c6268bc5a160f9c167f79d32a7df0ca826a733a4cc8140984ec258",
+    "config/ultrahand/sounds/wall.wav": "af5bb567a53bb7b5f2715f14c632d211d42d370f46ce745fba2df3a5f537fd6c",
+    "config/ultrahand/theme.ini": "d090cd64734f58b8650e84f27e62d1373e84c01a5105fa7d7da889f361be7f84",
+    "config/ultrahand/themes/classic.ini": "5b156522443bb765105457f4a8bba354881268ab93c186a211dfe845b6a5fcb9",
+    "config/ultrahand/themes/ultra-blue.ini": "b0c2983134ab8f232ec8b1d32ce5c0366b8692f450c76bf78933a3561af5b3e4",
+    "config/ultrahand/themes/ultra.ini": "c72ece347d2c7e4bbdc26dd39e455cf51e03bae9194f25cfe671da4934e4130d",
+    "config/ultrahand/wallpapers/atmosphere.rgba": "f4e5127c3f2d255c15e3dc1090c06385e4da691afff54bc736199e634b751e95",
+    "emuiibo/overlay/lang/de.json": "3824163491473c71e79aa64afc1a8503dff530a4d6997526adea8c3f9b3bfef1",
+    "emuiibo/overlay/lang/en.json": "f466e60c3da4540e4cbeb922180b775722ed6e227824666af4b375fce47b03b6",
+    "emuiibo/overlay/lang/es.json": "66b02a79ea723cb38cf5b26cf8552776d67b2187e17aa377d03ba2455dce4541",
+    "emuiibo/overlay/lang/fr.json": "967c133d006364520e37cf722d78ba2fcc3a42f8e2f071c7b56d89d9919e6473",
+    "emuiibo/overlay/lang/it.json": "2e2f3c4b4c8bae5f3ebb3d7c37541567c660f38a11d1b9d6b5cf90895ca042e2",
+    "emuiibo/overlay/lang/ko.json": "1852b6017d709f10b001ee4eb069dc240a12a6bfa688e9035b49f5ddff4b3e2f",
+    "emuiibo/overlay/lang/pt-BR.json": "2654811cd997981439dabcac97448d9f4bc5898cc0fb11784dc3e12aa6e8d181",
+    "emuiibo/overlay/lang/ru.json": "4e9bd1d90d1275dae2b555b7922acc1dd4604180db4f9d972af9dc0a3e8aea64",
+    "emuiibo/overlay/lang/zh-Hans.json": "b9a95d4ca4fe90343e0fe50f7df861ed711d28a2e47d099d3c0c201e968923f0",
+    "emuiibo/overlay/lang/zh-Hant.json": "59bbc77023cf3f5497a83ae484e22c487cfa9c64b0a6bcb1ee52f2a82e1feb3a",
+    "exosphere.ini": "c70e8927e703bbe1646a60480f6edb23bc51ea140a9db0e9f0d328b2929d455a",
+    "hbmenu.nro": "f51639eadbdad826eae7e16dce0a92a22d26e2ee02267a8644756a128fa1464f",
+    "payload.bin": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e",
+    "switch/.overlays/FPSLocker.ovl": "aafc86615b9dc6e5a24269d130612ba0eb7824228ae1ccf0e13e132ab4790ecd",
+    "switch/.overlays/NX-AudioControl.ovl": "62c098e05bd500ea05cbc6e9ebc44af4da62ebb9dbb56afcf2eae7528e97ba40",
+    "switch/.overlays/ReverseNX-RT-ovl.ovl": "5129a0e4bd3146664cc6f411a98322719bba62476c82ba6c729578f48ea00306",
+    "switch/.overlays/Status-Monitor-Overlay.ovl": "657f8dc29f7fec19f294a5984b1299992e2b68dd1aeaa378e9dd1fd875cede61",
+    "switch/.overlays/emuiibo.ovl": "8806bb41c6aa2f290527feb96bf8b6c344b806587620a070d73c989593898176",
+    "switch/.overlays/ovlEdiZon.ovl": "25cc90bf041b35f244863b556b9ac20511568b526c85ebc1966f7eddb57ce709",
+    "switch/.overlays/ovlSysmodules.ovl": "261a83c56ba48161fa584d1c722ea5b9e2fe7bfd064e2cf751d75d1b5680dde0",
+    "switch/.overlays/ovlmenu.ovl": "b96d137a0e37c86f9dfe65b7c69cbe6658631aa37285495eb5d9fb1a5f399682",
+    "switch/.overlays/sys-clk-overlay.ovl": "5fadfd8e5dcc4c00da5554e43b4040ccc67b091a756e4272053ef5fe8e1b074c",
+    "switch/.overlays/sys-patch-overlay.ovl": "0e9bbd5d2f8f9c6b7ab2c7219cec47f46e999cd575832a0fb00e5287bdded3bc",
+    "switch/DBI/DBI.nro": "816db30d9ccc88e3a1cdc6e294ae71ba92b101628437ecddc94d9168fb1aa319",
+    "switch/DBI/translation.bin": "fc449d83a027a9b496320d5420c8b459daa4f47508412256c0df9a90047adb93",
+    "switch/Switch_themes_installer/NXThemesInstaller.nro": "36ac0fac5477e08a176b2f155b8b3c170c1291004d943541348599bae8cf97a1",
+    "switch/Ultrahand-Reload/Ultrahand-Reload.nro": "be886544db19e5272c1336b1a9159338d8212e230ad8731863453db7144027eb",
+    "switch/appstore/.get/packages/BootSoundNX/info.json": "1bb58991e086aa39d9a38c9567768f9cc0fdd54454e2af36aedff2bfa022bb28",
+    "switch/appstore/.get/packages/EdiZonOverlay/info.json": "44af048fbd6549836109be940ef8f8ca4cb45ee303379097ec6d87dd6abb91ad",
+    "switch/appstore/.get/packages/Hekate/info.json": "debda54fddb5c54b896235791aead75236f791a0290610fcfa0f8734ae896399",
+    "switch/appstore/.get/packages/MissionControl/info.json": "dc2d48269402eeabfc407a3e85f38826bc1d4303ba00bd7b8140d433247745ca",
+    "switch/appstore/.get/packages/NXthemes_Installer/info.json": "27095a20900ce41601b744ef6fa67b11d88889cf5febd09ce0c5f5237c33e55e",
+    "switch/appstore/.get/packages/SaltyNX/info.json": "b68a64bf09423be36cba99be7588a13c61fc5b5ce477277417c91b7ad3ba8322",
+    "switch/appstore/.get/packages/UltrahandOverlay/info.json": "98a7bad74b87aed1ea0f589872671c6dc30ff94f3271f66fd8f8fe348c31faa0",
+    "switch/appstore/.get/packages/emuiibo/info.json": "f02e3f6f5408c12a0b69c0bfd65cb06f80ef401e115fb0e39372dfdd4287a098",
+    "switch/sphaira/sphaira.nro": "f51639eadbdad826eae7e16dce0a92a22d26e2ee02267a8644756a128fa1464f",
+    "themes/121FDD88B9A3EB71D99F936E45A0C76538C6B5AF000000000000000000000000.ips": "7603649ccd923dacce97e912e441fddc46af2c2ec3e4469641827d9bf916296c",
+    "themes/154BECB1F64B08E685892C17742703E7C536C428000000000000000000000000.ips": "57452f975be338ba354ea53258b52e715b6c31e0977f7b6fb0397b7c13602a28",
+    "themes/26CC3BC5AC534AE990B410769736EE81B919C999000000000000000000000000.ips": "d20ea30328cd03448b0748d3790d56a8ff787c432b1c233fd2a808856104197b",
+    "themes/33BDF80F27908568BBC09DFC0988D473BE113FA2000000000000000000000000.ips": "746e528e3383825b8cde883dcbd0dc727415a3b721209fbefb6a1211a104c3f5",
+    "themes/39B48AD043097551A4F87520699D9C2E6830CBEB000000000000000000000000.ips": "e1ed0825a297cd6d38f48ace0ed0c9d26729d01dcf23d212f1e97eaa164adf91",
+    "themes/4F8977C669EA4235AF73C8747BA58E63FDC53401000000000000000000000000.ips": "a7ced3a9467cbb1960a5f509dd776eccc2055fae435574ba4944b7c2dee5e730",
+    "themes/4FB7D6F3B4BD12BD3B1AD37C75C3C2F89173171F000000000000000000000000.ips": "917c59315f3569ca7f1a57e10e5eeb8ac5108ccc315910586161fdd74f66be8b",
+    "themes/54868A4E20B10356F63304D68F6A2FEA0CF882DC000000000000000000000000.ips": "139d9ef8ce06d7b032332f2a450a7855798f593933c30a17b49ddc5fa81a79fc",
+    "themes/6A9C94CDD7D065A95C081AAB947236D16045088D000000000000000000000000.ips": "2971a6a070f1d73ede197221fc6f2f2a8984a8ecd55a63c621aa70d6020249db",
+    "themes/7FADED28CE8756F6D94EBA4671EA97F81F6C0C23000000000000000000000000.ips": "75d4ef28113473774ce02eb72168d0add8298acf2c28fc9d958ef64e4a84d74c",
+    "themes/85058786CDC7597646D11A02B09D3EB50892AEBA000000000000000000000000.ips": "76959add0ade22ef6ad8c80d222260fed1a17ff1f9f5bfe2136807984aa16510",
+    "themes/929BC502258750F672CDCAC2CE6257F2E208D3B9000000000000000000000000.ips": "165868f8ee1487028ee6f85d91f1a75dfc4ce7f435446c491afb0fd66581ae95",
+    "themes/A53014944694070011B321ED00CC14009FC65F35000000000000000000000000.ips": "b9a6336104f404b2682266461007fec24cd778f77d6c3f5950ab1706e604059c",
+    "themes/A694C828C2D6D053249E84587535B9AE02B724A8000000000000000000000000.ips": "5d3e81efeba1329cab5b56fba2986e131e8fdb6edd01027f4c5c4dfc2c9d956e",
+    "themes/B2A05B062DA03FC5E3A310E80EE16A64935A8335000000000000000000000000.ips": "70e2f9180debbf330dbb39ecf454d20de207a4528bb0ef1f1fd945a27d9855a6",
+    "themes/BD3C95E4BDEA827F40F07AAC39893223E91FE5D0000000000000000000000000.ips": "c723597c4f9f03f506bb4bdfa63206729d87e5a11de7b225706a94cea9f397e4",
+    "themes/C7CD52452D0E57134683F8F9B25F331E0E5EDDA4000000000000000000000000.ips": "a99b20ea724e813fe84d5e21f2cf15eba82ddf8758df630bdfdfed74d7b67c04",
+    "themes/C941F2827EE07074BA5B9FB6485A31698A6609FC000000000000000000000000.ips": "2971a6a070f1d73ede197221fc6f2f2a8984a8ecd55a63c621aa70d6020249db",
+    "themes/D2974F38DF43169A1CD61B774CCEC5C702D48072000000000000000000000000.ips": "2971a6a070f1d73ede197221fc6f2f2a8984a8ecd55a63c621aa70d6020249db",
+    "themes/F2E4BBA05395FEB460228D254D9175E5C0EFC5E2000000000000000000000000.ips": "28124fd1a63e8485b6ccf786cb244f4c0d233b31b43dac87d0a7bb808c99b82c",
+    "themes/F35B0F5BA43F534A6B8839F527B7D38854B71C4B000000000000000000000000.ips": "d995faa88424d407df4ae77e16802d25e3c226b5a2790584f3d946edc25714f4",
+    "warmboot_mariko/wb_14.bin": "3e183684787f92042cb67cbbdd56d9d0ee9872e1df4bf4e529b6e92ca16fa1be",
+    "warmboot_mariko/wb_15.bin": "7500f64f6765aff46839b713339215b4d31c9ea576a9ba4e7ae6ff6c9a629c02",
+    "warmboot_mariko/wb_16.bin": "2168cff3d42ebd193cda2a3408ce1e4f6ce8e225df1f7eb9cf30767b33289500",
+    "warmboot_mariko/wb_17.bin": "2079b691a696ed1dc6366a7dc1594fd8f9e9b826796b44274658d36d62fb719b",
+    "warmboot_mariko/wb_18.bin": "22c9907a1aa0d6006e01fb2424dbd51b7a446863eba1d79bbe7edb85235c5b39",
+    "warmboot_mariko/wb_19.bin": "e7e4b61c1d91155ce0440cd4ee3749cf39c76aa3e59eea579d7fae0dd40e66ea"
+  }
+}
