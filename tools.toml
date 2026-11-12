@@ -72,9 +72,11 @@ post = [
 [[tool]]
 name = "modchip-toolbox"
 repo = "DefenderOfHyrule/modchip-toolbox"
+post = [
+  ["mv", "modchip_toolbox.bin", "bootloader/payloads/ModchipTB.bin"],
+]
   [[tool.asset]]
   match = "modchip_toolbox.bin"
-  dest = "bootloader/payloads"
 
 # ---------- Homebrew ----------
 
