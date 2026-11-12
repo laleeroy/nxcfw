@@ -104,6 +104,7 @@ repo = "exelix11/SwitchThemeInjector"
 [[tool]]
 name = "Themezer-NX"
 repo = "ThemezerNX/Themezer-NX"
+enabled = false
   [[tool.asset]]
   match = "themezer-nx.nro"
   dest = "switch/ThemezerNX"
