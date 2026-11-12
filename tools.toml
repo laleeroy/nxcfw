@@ -229,14 +229,14 @@ enabled = false
 # ---------- Misc ----------
 
 [[tool]]
-name = "theme-patches"
+name = "Theme patches"
   [[tool.asset]]
   url = "https://github.com/exelix11/theme-patches/archive/refs/heads/master.zip"
   from = "*/systemPatches"
   dest = "themes"
 
 [[tool]]
-name = "UltraNX"
+name = "Warmboot files"
   [[tool.asset]]
   url = "https://github.com/Ultra-NX/UltraNX/archive/refs/heads/main.zip"
   from = "*/warmboot_mariko"
