@@ -216,6 +216,12 @@ repo = "Fh1do/NX-AudioControl"
   [[tool.asset]]
   match = "NX-AudioControl.zip"
 
+[[tool]]
+name = "KeyX"
+repo = "TOM-BadEN/KeyX"
+  [[tool.asset]]
+  match = "KeyX-EN-80s.zip"
+
 # ---------- Misc ----------
 
 [[tool]]
