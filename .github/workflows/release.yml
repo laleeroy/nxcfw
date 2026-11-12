@@ -1,0 +1,155 @@
+name: Release
+
+# Push a tag (e.g. v1.2.0) to build the SD card and publish a release.
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the release
+    env:
+      TAG: ${{ github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+
+    steps:
+      # This repo: build.py, tools.toml, configs/, logo/, manifest.json
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # The tag is a frozen snapshot: its manifest.json is stale (it predates the
+      # last commit-manifest push). Replace it with the default branch's copy so
+      # build.py diffs against the *last build*, not against whatever main looked
+      # like when this tag was created.
+      - name: Refresh manifest baseline from default branch
+        run: |
+          branch="${{ github.event.repository.default_branch }}"
+          git fetch origin "$branch" --depth=1
+          if git show "origin/$branch:manifest.json" > manifest.json.tmp 2>/dev/null; then
+            mv manifest.json.tmp manifest.json
+            echo "baseline: manifest.json from origin/$branch"
+          else
+            rm -f manifest.json.tmp
+            echo "baseline: no manifest.json on origin/$branch, using tag's copy"
+          fi
+
+      - name: Checkout switch-logo-patcher
+        uses: actions/checkout@v4
+        with:
+          repository: friedkeenan/switch-logo-patcher
+          path: switch-logo-patcher
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: switch-logo-patcher/requirements.txt
+
+      - name: Install logo patcher dependencies
+        run: pip install -r switch-logo-patcher/requirements.txt
+
+      # Write into configs/ so build.py copies the patches in its final step
+      - name: Generate BL patches
+        run: |
+          set -euo pipefail
+          mkdir -p configs/atmosphere/exefs_patches/bl_patches
+          python switch-logo-patcher/gen_patches.py \
+            configs/atmosphere/exefs_patches/bl_patches logo/8bg.png
+          n=$(find configs/atmosphere/exefs_patches/bl_patches -name '*.ips' | wc -l)
+          echo "generated $n .ips files"
+          [ "$n" -gt 0 ] || { echo "::error::no .ips files generated"; exit 1; }
+
+      # Stamp the tag into the version shown on the console
+      - name: Set version
+        run: |
+          python - <<'PY'
+          import os, pathlib
+          p = pathlib.Path("configs/atmosphere/config/version")
+          text = p.read_text()
+          assert "Unknown" in text, f"'Unknown' not found in {p}"
+          p.write_text(text.replace("Unknown", os.environ["TAG"]))
+          PY
+
+      - name: Compile
+        run: python build.py --jobs "$(nproc)" --zip "8BP-${TAG}.zip"
+
+      # Header (build date, checksum) + the changelog written by build.py
+      - name: Write release notes
+        run: |
+          # build.py writes changelog.md during Compile. The fallback only fires on
+          # the very first release, where there is no previous manifest to diff.
+          [ -f changelog.md ] || python build.py --diff none.json manifest.json > changelog.md
+
+          {
+            echo "- **Build date:** $(TZ='Asia/Manila' date +'%Y-%m-%d %H:%M:%S') PHT"
+            echo "- **SHA-256:** \`$(sha256sum "8BP-${TAG}.zip" | cut -d' ' -f1)\`"
+            echo
+            cat changelog.md
+          } > release-notes.md
+
+      - name: Create release
+        run: |
+          gh release create "$TAG" "8BP-${TAG}.zip" \
+            --verify-tag \
+            --title "${TAG}" \
+            --notes-file release-notes.md
+
+      - name: Upload manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest
+          path: manifest.json
+          if-no-files-found: error
+
+  # Keep manifest.json in the repo: it is the baseline for the next changelog.
+  commit-manifest:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push to the default branch
+    concurrency:
+      group: commit-manifest
+    env:
+      TAG: ${{ github.ref_name }}
+      BRANCH: ${{ github.event.repository.default_branch }}
+
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Download manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: manifest
+
+      - name: Commit manifest.json
+        run: |
+          git config user.name "laleeroy"
+          git config user.email "laleeroy@users.noreply.github.com"
+          git add manifest.json
+          if git diff --cached --quiet; then
+            echo "manifest.json unchanged, nothing to commit"
+            exit 0
+          fi
+          git commit -m "Update manifest.json for ${TAG}"
+          for i in 1 2 3; do
+            if git pull --rebase origin "$BRANCH" && git push origin "HEAD:${BRANCH}"; then
+              exit 0
+            fi
+            echo "push attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "::error::failed to push manifest.json after 3 attempts"
+          exit 1
