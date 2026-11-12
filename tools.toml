@@ -219,6 +219,7 @@ repo = "Fh1do/NX-AudioControl"
 [[tool]]
 name = "KeyX"
 repo = "TOM-BadEN/KeyX"
+enabled = false
   [[tool.asset]]
   match = "KeyX-EN-80s.zip"
 
