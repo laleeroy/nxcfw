@@ -30,6 +30,8 @@ name = "hekate"
 repo = "CTCaer/hekate"
 post = [
   ["rm", "bootloader/ini"],
+  ["rm", "icon_payload.bmp"],
+  ["rm", "icon_switch.bmp"],
   ["cp", "hekate*.bin", "atmosphere/reboot_payload.bin"],
   ["mv", "hekate*.bin", "payload.bin"],
 ]
