@@ -62,15 +62,6 @@ post = [
   match = "TegraExplorer-Ext*.zip"
 
 [[tool]]
-name = "KitNX"
-repo = "sthetix/KitNX"
-post = [
-  ["rm", "config"],
-]
-  [[tool.asset]]
-  match = "KitNX*.zip"
-
-[[tool]]
 name = "modchip-toolbox"
 repo = "DefenderOfHyrule/modchip-toolbox"
 post = [
