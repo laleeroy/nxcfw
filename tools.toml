@@ -48,6 +48,7 @@ post = [
 [[tool]]
 name = "Warmboot-Extractor"
 repo = "sthetix/Warmboot-Extractor"
+enabled = false
   [[tool.asset]]
   match = "Warmboot_Extractor-*.zip"
 
