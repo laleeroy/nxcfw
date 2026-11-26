@@ -206,10 +206,10 @@ post = [
   from = "BootSoundNX"
 
 [[tool]]
-name = "NX-AudioControl"
-repo = "Fh1do/NX-AudioControl"
+name = "KFNS"
+repo = "Fh1do/KFNS"
   [[tool.asset]]
-  match = "NX-AudioControl.zip"
+  match = "KFNS*.zip"
 
 [[tool]]
 name = "KeyX"
