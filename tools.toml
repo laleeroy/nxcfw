@@ -84,6 +84,7 @@ name = "sphaira"
 repo = "NaGaa95/sphaira"
 post = [
   ["cp", "switch/sphaira/sphaira.nro", "hbmenu.nro"],
+  ["rm", "nx2"],
 ]
   [[tool.asset]]
   match = "sphaira.zip"
