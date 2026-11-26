@@ -225,7 +225,7 @@ name = "Theme patches"
   [[tool.asset]]
   url = "https://github.com/exelix11/theme-patches/archive/refs/heads/master.zip"
   from = "*/systemPatches"
-  dest = "themes"
+  dest = "themes/systemPatches"
 
 [[tool]]
 name = "Warmboot files"
